@@ -204,7 +204,8 @@ hb.registerHelper("showPeople", function(name, items) {
 });
 
 hb.registerHelper("showLogos", function(items) {
-  var ret = "<p>";
+  // var ret = "<p>";
+  var ret = "";
   for (var i = 0, n = items.length; i < n; i++) {
     var p = items[i];
     if (p.url) ret += "<a href='" + p.url + "'>";
@@ -221,7 +222,7 @@ hb.registerHelper("showLogos", function(items) {
     if (p.url) ret += "</a>";
     if (p.id) ret += "</span>";
   }
-  ret += "</p>";
+  // ret += "</p>";
   return new hb.SafeString(ret);
 });
 

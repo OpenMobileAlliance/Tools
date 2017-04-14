@@ -1,6 +1,6 @@
 {
-  "name": "respec",
-  "version": "11.4.1",
+  "name": "oma-respec",
+  "version": "0.0.5",
   "license": "W3C",
   "description": "A technical specification pre-processor.",
   "engines": {
@@ -15,11 +15,11 @@
   },
   "author": "Robin Berjon",
   "devDependencies": {
-    "babel-cli": "^6.24.0",
+    "babel-cli": "^6.24.1",
     "clipboard": "^1.6.1",
-    "babel-plugin-transform-async-to-generator": "^6.22.0",
-    "babel-plugin-transform-es2015-modules-amd": "^6.24.0",
-    "babel-preset-env": "^1.3.2",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
+    "babel-preset-env": "^1.3.3",
     "chai": "^3.5.0",
     "domReady": "github:requirejs/domReady",
     "glob": "^7.1.1",
@@ -31,7 +31,7 @@
     "js-beautify": "^1.6.12",
     "jscs": "^3.0.7",
     "jshint": "^2.9.4",
-    "karma": "^1.5.0",
+    "karma": "^1.6.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-detect-browsers": "^2.2.5",
     "karma-edge-launcher": "^0.4.1",
@@ -48,16 +48,17 @@
     "moment": "^2.18.1",
     "requirejs": "^2.3.3",
     "text": "github:requirejs/text",
-    "uglify-js": "^2.8.21",
-    "webidl2": "^2.3.0",
+    "uglify-js": "^2.8.22",
+    "webidl2": "^2.4.0",
     "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
     "babel:build": "babel src -d js --source-maps",
     "babel:watch": "babel src -d js --watch --source-maps",
-    "build": "npm run hb:build && npm run build:highlight && npm run babel:build && npm run copydeps && npm run build:respec-w3c-common",
+    "build": "npm run hb:build && npm run build:highlight && npm run babel:build && npm run copydeps && npm run build:respec-oma-common",
     "build:highlight": "cd node_modules/highlight.js/ && npm install && node ./tools/build.js -n xml javascript css http markdown json abnf && cd ../../",
     "build:respec-w3c-common": "./tools/builder.js --profile=w3c-common",
+    "build:respec-oma-common": "./tools/builder.js --profile=oma-common",
     "copydeps": "node ./tools/copydeps.js",
     "handlebars": "handlebars",
     "hb:build": "node ./tools/expandpaths.js -a js/*/templates/*.html js/*/templates/*.css js/core/templates/webidl-contiguous/*.html | xargs handlebars -f js/templates.js",
@@ -90,7 +91,7 @@
     "marked": "^0.3.6",
     "nightmare": "^2.10.0",
     "prompt": "^1.0.0",
-    "snyk": "^1.26.1"
+    "snyk": "^1.28.0"
   },
   "snyk": true
 }
