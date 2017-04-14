@@ -104,17 +104,31 @@ export function run(conf, doc, cb) {
     pub("warn", warn);
   }
 
-  var styleBaseURL = "https://nathan-omaorg.github.io/respec/stylesheets/";
+  var styleBaseURL = "https://www.w3.org/StyleSheets/TR/{version}";
   var finalStyleURL = "";
-  var styleFile = "OMA-";
+  var styleFile = "W3C-";
 
   // Figure out which style file to use.
   switch (conf.specStatus.toUpperCase()) {
-    case "DRAFT":
+    case "DRAFT":  
+        styleBaseURL = "https://nathan-omaorg.github.io/respec/stylesheets/";
+        styleFile = "OMA-";
         styleFile += "DRAFT.css";
         break;
     case "CANDIDATE":
+        styleBaseURL = "https://nathan-omaorg.github.io/respec/stylesheets/";
+        styleFile = "OMA-";
         styleFile += "CANDIDATE.css";
+        break;
+    case "APPROVED":
+        styleBaseURL = "https://nathan-omaorg.github.io/respec/stylesheets/";
+        styleFile = "OMA-";
+        styleFile += "APPROVED.css";
+        break;
+    case "HISTORIC":
+        styleBaseURL = "https://nathan-omaorg.github.io/respec/stylesheets/";
+        styleFile = "OMA-";
+        styleFile += "HISTORIC.css";
         break;
     case "CG-DRAFT":
     case "CG-FINAL":
