@@ -125,7 +125,7 @@
       <p class='copyright'>{{{additionalCopyrightHolders}}}</p>
     {{else}}
       {{#if overrideCopyright}}
-        {{{overrideCopyright}}}
+        <p>blah</p>
       {{else}}
         <p class='copyright'>
           This document is licensed under a
@@ -136,11 +136,7 @@
     {{/if}}
   {{else}}
     {{#if overrideCopyright}}
-      <p class='copyright'>  
-        <a href='{{{overrideCopyright.copyrightURL}}}'>Copyright</a>  &copy;
-        {{#if copyrightStart}}{{copyrightStart}}-{{/if}}{{publishYear}} 
-        <a href='{{{overrideCopyright.copyrightOrganisationURL}}}'>{{{overrideCopyright.copyrightOrganisationName}}}</a>  All rights reserved.
-      </p>
+      <p>blah</p>
     {{else}}
       <p class='copyright'>
         <a href='https://www.w3.org/Consortium/Legal/ipr-notice#Copyright'>Copyright</a> &copy;
@@ -171,12 +167,4 @@
     {{/if}}
   {{/if}}
   <hr title="Separator for header">
-  {{#if legalDisclaimer}}
-  <section id="legal"></section>
-    <h2 class="legalDisclaimer">Legal</h2>
-    <p class="legalDisclaimer">
-      {{{legalDisclaimer}}}
-    </p>
-  </section>
-  {{/if}}
 </div>

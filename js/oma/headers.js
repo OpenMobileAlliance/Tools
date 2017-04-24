@@ -101,8 +101,10 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
   //          - href: a URL for the value (e.g., "https://foo.com/issues"). Optional.
   //          - class: a string representing CSS classes. Optional.
   //  - license: can be one of the following
+  //  <!-- OMA change
   //      - "oma", Now the default OMA license
   //      - "w3c", the old default (restrictive) license
+  //  --> 
   //      - "cc-by", which is experimentally available in some groups (but likely to be phased out).
   //          Note that this is a dual licensing regime.
   //      - "cc0", an extremely permissive license. It is only recommended if you are working on a document that is
@@ -110,8 +112,14 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
   //      - "w3c-software", a permissive and attributions license (but GPL-compatible).
   //      - "w3c-software-doc", the W3C Software and Document License
   //            https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+  //  <!-- OMA change
   //  - organisationURL: set the URLs to a customised URL for the organisation that the profile is being built for.
   //  - publishSpace: The folder structure under which the document is published.
+  //  - legalDisclaimer: Your own legal disclaimer text as the first section of the document
+  //    - copyrightURL: URL of the copyright notice
+  //    - copyrightOrganisationName: Name of the organisation who holds the copyright
+  //    - copyrightOrganisationURL: The URL to the organisation who holds the copyright
+  //  -->
   var cgbgHeadersTmpl = _templates2.default["cgbg-headers.html"];
   var cgbgSotdTmpl = _templates2.default["cgbg-sotd.html"];
   var headersTmpl = _templates2.default["headers.html"];
@@ -311,18 +319,22 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
       short: "CC-BY",
       url: "https://creativecommons.org/licenses/by/4.0/legalcode"
     },
+    //  <!-- OMA change
     "oma": {
       name: "Open Mobile Alliance License",
       short: "OMA License",
       url: "http://openmobilealliance.org/about-oma/policies-and-terms-of-use/intellectual-property-rights/"
     }
+    //  --> 
   };
 
   function run(conf, doc, cb) {
     // Default include RDFa document metadata
     if (conf.doRDFa === undefined) conf.doRDFa = true;
     // validate configuration and derive new configuration values
+    //  <!-- OMA change
     if (!conf.license) conf.license = conf.specStatus === "webspec" ? "w3c-software" : "oma";
+    //  --> 
     conf.isCCBY = conf.license === "cc-by";
     conf.isW3CSoftAndDocLicense = conf.license === "w3c-software-doc";
     if (conf.specStatus === "webspec" && !$.inArray(conf.license, ["cc0", "w3c-software"])) (0, _pubsubhub.pub)("error", "You cannot use that license with WebSpecs.");
@@ -355,17 +367,25 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
       if (conf.specStatus === "ED") (0, _pubsubhub.pub)("warn", "Editor's Drafts should set edDraftURI.");
     }
     conf.maturity = status2maturity[conf.specStatus] ? status2maturity[conf.specStatus] : conf.specStatus;
+    //  <!-- OMA change
     if (!conf.organisationURL) {
       conf.organisationURL = "http://www.w3.org/";
     }
     var publishSpace = conf.publishSpace ? conf.publishSpace : "TR";
-
+    //  --> 
     if (conf.specStatus === "Member-SUBM") publishSpace = "Submission";else if (conf.specStatus === "Team-SUBM") publishSpace = "TeamSubmission";
-    if (conf.isRegular) conf.thisVersion = conf.organisationURL + publishSpace + "/" + conf.publishDate.getFullYear() + "/" + conf.maturity + "-" + conf.shortName + "-" + (0, _utils.concatDate)(conf.publishDate) + "/";
+    //  <!-- OMA change
+    if (conf.isRegular) conf.thisVersion = conf.organisationURL + publishSpace + "/" +
+    //  --> 
+    conf.publishDate.getFullYear() + "/" + conf.maturity + "-" + conf.shortName + "-" + (0, _utils.concatDate)(conf.publishDate) + "/";
     if (conf.specStatus === "ED") conf.thisVersion = conf.edDraftURI;
+    //  <!-- OMA change
     if (conf.isRegular) conf.latestVersion = conf.organisationURL + publishSpace + "/" + conf.shortName + "/";
+    //  --> 
     if (conf.isTagFinding) {
+      //  <!-- OMA change
       conf.latestVersion = conf.organisationURL + "2001/tag/doc/" + conf.shortName;
+      //  --> 
       conf.thisVersion = conf.latestVersion + "-" + (0, _utils.concatDate)(conf.publishDate, "-");
     }
     if (conf.previousPublishDate) {
@@ -379,12 +399,14 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
       } else if (conf.isBasic) {
         conf.prevVersion = "";
       } else {
+        //  <!-- OMA change --> 
         conf.prevVersion = conf.organisationURL + publishSpace + "/" + conf.previousPublishDate.getFullYear() + "/" + pmat + "-" + conf.shortName + "-" + (0, _utils.concatDate)(conf.previousPublishDate) + "/";
       }
     } else {
       if (!/NOTE$/.test(conf.specStatus) && conf.specStatus !== "FPWD" && conf.specStatus !== "FPLC" && conf.specStatus !== "ED" && !conf.noRecTrack && !conf.isNoTrack && !conf.isSubmission) (0, _pubsubhub.pub)("error", "Document on track but no previous version: Add previousMaturity previousPublishDate to ReSpec's config.");
       if (!conf.prevVersion) conf.prevVersion = "";
     }
+    //  <!-- OMA change --> 
     if (conf.prevRecShortname && !conf.prevRecURI) conf.prevRecURI = conf.organisationURL + publishSpace + "/" + conf.prevRecShortname;
     if (!conf.editors || conf.editors.length === 0) (0, _pubsubhub.pub)("error", "At least one editor is required");
     var peopCheck = function peopCheck(it) {
@@ -456,6 +478,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
     // annotate html element with RFDa
     if (conf.doRDFa) {
       if (conf.rdfStatus) $("html").attr("typeof", "bibo:Document " + conf.rdfStatus);else $("html").attr("typeof", "bibo:Document ");
+      //  <!-- OMA change --> 
       var prefixes = "bibo: http://purl.org/ontology/bibo/ w3p: " + conf.organisationURL + "2001/02pd/rec54#";
       $("html").attr("prefix", prefixes);
       $("html>head").prepend($("<meta lang='' property='dc:language' content='en'>"));
