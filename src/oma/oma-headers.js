@@ -3,7 +3,7 @@
 */
 /*global hb*/
 
-// Module oma/headers
+// Module oma/oma-headers
 // Generate the headers material based on the provided configuration.
 // CONFIGURATION
 //  - specStatus: the short code for the specification's maturity level or type (required)
@@ -116,7 +116,7 @@ import tmpls from "templates";
 
 const cgbgHeadersTmpl = tmpls["cgbg-headers.html"];
 const cgbgSotdTmpl = tmpls["cgbg-sotd.html"];
-const headersTmpl = tmpls["headers.html"];
+const headersTmpl = tmpls["oma-headers.html"];
 const sotdTmpl = tmpls["sotd.html"];
 
 hb.registerHelper("showPeople", function(name, items) {

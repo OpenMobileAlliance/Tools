@@ -1,0 +1,2804 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title id="#title">OMA ORG HTML User Guide</title>
+    <meta charset="utf-8">
+
+    <script src="https://openmobilealliance.github.io/Tools/builds/respec-oma-common-WIP.js"
+            async class="remove"></script>
+
+    <script class="remove">
+        var respecConfig = {
+            // for editor use
+            docType: "", // options are BASE, RD, AD, TS, SUP, ETS, ORG
+            subtitle: "OMA_ORG_HTML_User_Guide_V1_0",
+            shortName: "ReSpecHTML",
+            otherLinks: [{
+                key: "Other Link",
+                data: [{
+                    value: "Link Name",
+                    href: "#location"
+                }]
+            }],
+            editors: [{
+                name: "Joaquin Prado",
+                url: "",
+                company: "OMA",
+                companyURL: "http://openmobilealliance.org/",
+                mailto: "jprado",
+                note: ""
+            }],
+
+            authors: [{
+                    name: "Sean McIlroy",
+                    url: "",
+                    company: "OMA",
+                    companyURL: "http://openmobilealliance.org/",
+                    mailto: "smcilroy",
+                    note: ""
+                },
+
+                {
+                    name: "John Mudge",
+                    url: "",
+                    company: "OMA",
+                    companyURL: "http://openmobilealliance.org/",
+                    mailto: "jmudge",
+                    note: ""
+                }
+            ],
+
+            interactiveLinks: [{
+              name: "Link Name",
+              description: "Link Description",
+              uri: "http://example.com/",
+            },{
+              name: "Second Link Name",
+              description: "Second Link Description",
+              uri: "http://example2.com/",
+            }],
+
+            // for staff only
+            specStatus: "DRAFT", // options are Draft, Candidate, Approved, Historic
+            publishDate: "",
+        };
+    </script>
+
+</head>
+
+<body>
+
+<!-- table of content and figures -->
+<section id="toc"></section>
+<section id="tof"></section>
+<section id="tot"></section>
+<!-- table of content and figures -->
+
+<!-- start introduction to this document -->
+<section>
+  <h2>How to use this Document</h2>
+</section>
+<!-- /end introduction to this document -->
+
+<!-- start front page -->
+<section>
+<h2>Front Page</h2>
+
+    <!-- start directives controlled by the editor -->
+    <section>
+        <h2>Directives Controlled by the Editor</h2>
+        <p>The following Javascript Directives are controlled by the Editors:</p>
+        <dl>
+            <dt><code>title</code></dt>
+              <dd>- Title of the document.</dd>
+              <dd>- It is not part of the Javascript Directives, it is defined in the head of the document.</dd>
+            <dd>
+              <table id="document_title">
+                 <caption>Document Title</caption>
+                 <thead>
+                   <tr>
+                     <td>docType</td>
+                     <td>Document Title</td>
+                     <td>Example</td>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td>Requirement</td>
+                     <td>"Functional Area" Requirements</td>
+                     <td>Lightweight Machine to Machine Requirements</td>
+                   </tr>
+                   <tr>
+                     <td>Architecture</td>
+                     <td>"Functional Area" Architecture</td>
+                     <td>Lightweight Machine to Machine Architecture</td>
+                   </tr>
+                   <tr>
+                     <td>Technical Specification</td>
+                     <td>"Name of Specification" Technical Specification</td>
+                     <td>Lightweight Machine to Machine Technical Specification</td>
+                   </tr>
+                   <tr>
+                     <td>Enabler Test Specification</td>
+                     <td>Enabler Test Specification for "EnablerName"</td>
+                     <td>Enabler Test Specification for Lightweight M2M</td>
+                   </tr>
+                   <tr>
+                     <td>SUP</td>
+                     <td>n/a</td>
+                     <td>n/a</td>
+                   </tr>
+                 </tbody>
+              </table>
+            </dd>
+            <dt><code>docType</code></dt>
+            <dd>- Represents the type of documents: "RD", "AD", "TS", "SUP", "ETS", and "ORG".</dd>
+
+            <dt><code>subtitle</code></dt>
+            <dd>- Name of the file.</dd>
+            <dd>
+              <table id="docType">
+                 <caption>docType Directive</caption>
+                 <thead>
+                   <tr>
+                     <td>docType</td>
+                     <td>File_Name</td>
+                     <td>Example</td>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td>Requirement</td>
+                     <td>OMA_RD_"FunctionalRef"</td>
+                     <td>OMA_RD_LightweightM2M</td>
+                   </tr>
+                   <tr>
+                     <td>Architecture</td>
+                     <td>OMA_AD_"FunctionalRef"</td>
+                     <td>OMA_AD_LightweightM2M</td>
+                   </tr>
+                   <tr>
+                     <td>Technical Specification</td>
+                     <td>OMA_TS_"FunctionalName"</td>
+                     <td>OMA_TS_LightweightM2M</td>
+                   </tr>
+                   <tr>
+                     <td>Enabler Test Specification</td>
+                     <td>OMA_ETS_"EnablerName"</td>
+                     <td>OMA_ETS_LightweightM2M</td>
+                   </tr>
+                   <tr>
+                     <td>SUP</td>
+                     <td>"EnablerShortName"_"sup_file_name"."extension"</td>
+                     <td>LWM2M_Access_Control.xml</td>
+                   </tr>
+                 </tbody>
+              </table>
+            </dd>
+
+            <dt><code>shortName</code></dt>
+              <dd>- Unique identifier, it is used in the OMA Reference Database, e.g: [LWM2M], OMA LightWeightM2M Technical Specifications.</dd>
+              <dd>- This name is intended for crawlers to uniquely identify the document when searching.</dd>
+              <dd>- This shortName needs to be registered in the OMA Reference Database.</dd>
+
+            <dt><code>creationDate</code></dt>
+            <dd>- <strong>yyyy-mmm-dd / hh:mm</strong> defines the day-month-year, hours and minutes of the creation of the document in GitHub.</dd>
+
+            <dt><code>editors</code></dt>
+              <dd>- They are the people in charge of the document.</dd>
+              <dd>- Provides a list of editors of the document as well as a note.</dd>
+            <dd>
+               <table id="editors">
+                 <caption>Editors Directives</caption>
+                 <thead>
+                   <tr>
+                     <td>Name</td>
+                     <td>Default Value</td>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td>name:</td>
+                     <td>"Editor Name"</td>
+                   </tr>
+                   <tr>
+                     <td>url:</td>
+                     <td>"http://example.com/"</td>
+                   </tr>
+                   <tr>
+                     <td>company:</td>
+                     <td>"Editor company"</td>
+                   </tr>
+                   <tr>
+                     <td>companyURL:</td>
+                     <td>"http://example.org/"</td>
+                   </tr>
+                   <tr>
+                     <td>mailto:</td>
+                     <td>"editor@example.com"</td>
+                   </tr>
+                   <tr>
+                     <td>note: </td>
+                     <td>"editor note"</td>
+                   </tr>
+                 </tbody>
+               </table>
+            </dd>
+            <dt><code>authors</code></dt>
+              <dd>- They are people who produced substantial contributions, but did not manage the document per se. </dd>
+              <dd>- Provides a list of authors of the document as well as a note.</dd>
+
+            <dd>
+               <table id="authors">
+                 <caption>Authors Directives</caption>
+                 <thead>
+                   <tr>
+                     <td>Name</td>
+                     <td>Default Value</td>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td>name:</td>
+                     <td>"Author Name"</td>
+                   </tr>
+                   <tr>
+                     <td>url:</td>
+                     <td>"http://example.com/"</td>
+                   </tr>
+                   <tr>
+                     <td>company:</td>
+                     <td>"Author company"</td>
+                   </tr>
+                   <tr>
+                     <td>companyURL:</td>
+                     <td>"http://example.org/"</td>
+                   </tr>
+                   <tr>
+                     <td>mailto:</td>
+                     <td>"author@example.com"</td>
+                   </tr>
+                   <tr>
+                     <td>note: </td>
+                     <td>"author note"</td>
+                   </tr>
+                 </tbody>
+               </table>
+            </dd>
+            <dt><code>OtherLinks</code></dt>
+            <dd>- Allows links to other documents to be included on the front page.</dd>
+            <dd>
+              <table id="Otherlinks">
+                <caption>OtherLinks Directive</caption>
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Default Value</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>key:</td>
+                    <td>"Other Link"</td>
+                  </tr>
+                  <tr>
+                    <td>value:</td>
+                    <td>"Link Name"</td>
+                  </tr>
+                  <tr>
+                    <td>href:</td>
+                    <td>"http://example.org/#location"</td>
+                  </tr>
+                 </tbody>
+              </table>
+            </dd>
+            <dt><code>interactiveLinks</code></dt>
+            <dd>- URL that points to information prepared by OMA, e.g: ToolKits, Discussion Forums, Bug Tracker, etc.</dd>
+            <dd>
+              <table id="interactiveLinks">
+                <caption>Interactive Links</caption>
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Default Value</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>name:</td>
+                    <td>"URL Name"</td>
+                  </tr>
+                  <tr>
+                    <td>Description:</td>
+                    <td>"description"</td>
+                  </tr>
+                  <tr>
+                    <td>url:</td>
+                    <td>"http://example.org/"</td>
+                  </tr>
+                 </tbody>
+              </table>
+            </dd>
+        </dl>
+    </section>
+    <!-- /end directives controlled by the editor -->
+
+    <!-- start directives controlled by the staff -->
+    <section>
+        <h2>Directives Controlled by the Staff</h2>
+        <p>These directives are used by the OMA staff at the time of publication of the document:</p>
+        <dl>
+            <dt><code>specStatus</code></dt>
+              <dd>- Mandatory</dd>
+              <dd>- Default Value: "Draft"</dd>
+              <dd>- Status of the specification document: "Draft", "Candidate", "Approved", "Historic".</dd>
+
+            <dt><code>version</code></dt>
+              <dd>- Mandatory</dd>
+              <dd>- Default Value: "Vx.y.z"</dd>
+
+              <dt><code>publishDate</code></dt>
+                <dd>Mandatory</dd>
+                <dd>Default Value: ""</dd>
+                <dd>- <strong>yyyy-mmm-dd</strong>, date when the document was published.</dd>
+
+        </dl>
+    </section>
+    <!-- /end directives controlled by the staff -->
+
+    <!-- start example of respec configuration options -->
+    <section>
+      <h2>Example of OMA Javascript Directives</h2>
+    <aside class="code-content">
+
+      &lt;head>
+          &lt;title>OMA ORG and HTML User Guide&lt;/title>
+          &lt;meta charset="utf-8">
+
+          &lt;script src="https://openmobilealliance.github.io/Tools/builds/respec-oma-common-WIP.js"
+                  async class="remove">&lt;/script>
+
+          &lt;script class="remove">
+              var respecConfig = {
+                  // for editor use
+                  docType: "", // options are BASE, RD, AD, TS, SUP, ETS, ORG
+                  subtitle: "OMA_ORG_ReSpec_and_HTML_Constructors-V1_0",
+                  shortName: "ReSpecHTML",
+                  otherLinks: [{
+                      key: "Other Link",
+                      data: [{
+                          value: "Link Name",
+                          href: "#location"
+                      }]
+                  }],
+                  editors: [{
+                      name: "Joaquin Prado",
+                      url: "",
+                      company: "OMA",
+                      companyURL: "http://openmobilealliance.org/",
+                      mailto: "jprado",
+                      note: ""
+                  }],
+
+                  authors: [{
+                          name: "Sean McIlroy",
+                          url: "",
+                          company: "OMA",
+                          companyURL: "http://openmobilealliance.org/",
+                          mailto: "smcilroy",
+                          note: ""
+                      },
+
+                      {
+                          name: "John Mudge",
+                          url: "",
+                          company: "OMA",
+                          companyURL: "http://openmobilealliance.org/",
+                          mailto: "jmudge",
+                          note: ""
+                      }
+                  ],
+
+                  interactiveLinks: [{
+                    name: "Link Name",
+                    description: "Link Description",
+                    uri: "http://example.com/",
+                  },{
+                    name: "Second Link Name",
+                    description: "Second Link Description",
+                    uri: "http://example2.com/",
+                  }],
+
+                  // for staff only
+                  specStatus: "DRAFT", // options are Draft, Candidate, Approved, Historic
+                  publishDate: "",
+              };
+        &lt;/script>
+
+      &lt;/head>
+    </aside>
+  </section>
+  <!-- /end example of respec configuration options -->
+
+</section>
+<!-- /end front page -->
+
+<!-- start index -->
+<section>
+<h2>Index</h2>
+   <p>The Index or Table of Contents is constituted by three different sections:</p>
+
+   <dl>
+      <dt><a href="#table-of-contents">Table of Contents</a></dt>
+      <dd>Constructed automatically, it contains the list of all the sections in the document.</dd>
+      <dt><a href="#table-of-figures">Table of Figures</a></dt>
+      <dd>Constructed automatically, it contains a list of all the figures inserted in the document.</dd>
+      <dt><a href="#table-of-tables">Table of Tables</a></dt>
+      <dd>Constructed automatically, it contains a list of all the tables inserted in the document.</dd>
+   </dl>
+
+   <!-- start table of contents -->
+   <section >
+   <h2>Table of Contents</h2>
+
+      <p>The code for defining the <strong>Table of Contents</strong> is: </p>
+
+      <!-- start code-content for table of contents -->
+      <aside class="code-content">
+&lt;section id="toc">&lt;/section>
+      </aside>
+      <!-- /end code-content fo rtable of contents -->
+
+      <!-- start guidelines for table of contents -->
+      <p>The guidelines for using the <strong>Table of Contents</strong> are:</p>
+      <ul>
+          <li><p><strong>Table of Contents</strong> (Index) is constructed automatically as long as the
+          <code>&lt;section id="toc"&gt;&lt;/section&gt;</code> is defined at the beginning of the <code>&lt;body&gt;</code> of the document.</p></li>
+          <li><p>If <code>&lt;id="toc"&gt;</code> is not listed as part of the <code>&lt;section&gt;</code>, then the <strong>Table of Contents</strong> will not be displayed. </p></li>
+      </ul>
+      <!-- /end guidelines for table of contents -->
+
+    </section>
+    <!-- /end table of contents -->
+
+    <!-- start table of figures -->
+    <section>
+        <h2>Table of Figures</h2>
+
+        <p>The code for defining the <strong>Table of Figures</strong> is: </p>
+
+        <!-- start code-content for table of figures -->
+        <aside class="code-content">
+&lt;section id="tof">&lt;/section>
+        </aside>
+        <!-- /end code-content for table of figures -->
+
+        <!-- start guidelines for table of figures -->
+        <p>The guidelines for using the <strong>Table of Figures</strong> are:</p>
+        <ul>
+            <li><p><strong>Table of Figures</strong> is constructed automatically as long as the
+            <code>&lt;section id="tof"&gt;&lt;/section></code> is defined at the beginning of the <code>&lt;body&gt;</code> of the document.</p></li>
+            <li><p>If <code>&lt;id="tof"&gt;</code> is not listed as part of the <code>&lt;section&gt;</code>, then the <strong>Table of Figures</strong> will not be displayed. </p></li>
+        </ul>
+        <!-- /end guidelines for table of figures -->
+
+    </section>
+    <!-- /end section of figures -->
+
+    <!-- start table of tables -->
+    <section>
+        <h2>Table of Tables</h2>
+
+        <p>The code for defining the <strong>Table of Tables</strong> is: </p>
+
+        <!-- start code-content for table of tables -->
+        <aside class="code-content">
+&lt;section id="tot">&lt;/section>
+        </aside>
+        <!-- /end code-content for table of tables -->
+
+        <!-- start guidelines for table of tables -->
+        <p>The guidelines for using the <strong>Table of Tables</strong> are:</p>
+        <ul>
+            <li><p><strong>Table of Tables</strong> is constructed automatically as long as the
+            <code>&lt;section id="tot">&lt;/section&gt;</code> is defined at the beginning of the <code>&lt;body&gt;</code> of the document.</p></li>
+            <li><p>If <code>&lt;id="tot"&gt;</code> is not listed as part of the <code>&lt;section&gt;</code>, then the <strong>Table of Tables</strong> will not be displayed. </p></li>
+        </ul>
+        <!-- /end guidelines for table of tables -->
+
+    </section>
+    <!-- /end section of tables -->
+
+</section>
+<!-- /end index -->
+
+<!-- start scope -->
+<section class="informative">
+<h2>Scope</h2>
+
+<p>The code for defining the <strong>Scope</strong> section is: </p>
+
+  <!-- start code-content for scope -->
+  <aside class="code-content">
+      &lt;section class="informative">
+        &lt;h2>Scope&lt;/h2>
+        &lt;p>... text goes here ... &lt;/p>
+      &lt;/section>
+	</aside>
+  <!-- /end code-content for scope -->
+
+  <!-- start guidelines for scope -->
+  <p>The guidelines for defining the <strong>Scope</strong> section are:</p>
+  <ul>
+      <li><p><strong>Scope</strong> is an <code>"informative"</code> section that <strong>MUST</strong> be defined in the body of the document in order to be displayed.</p></li>
+      <li><p><strong>ReSpec</strong> will add the comment:<em>"This section is non-normative."</em>, when the section contains the attribute: <code>class ="informative"</code>.</p></li>
+  </ul>
+  <!-- /end guidelines for scope -->
+
+</section>
+<!-- /end scope -->
+
+<!-- start terminology and conventions section -->
+<section>
+    <h2>Terminology and Conventions</h2>
+    <p>This section is composed by three subsections:</p>
+    <dl>
+        <dt><a href="#conventions">Conventions</a></dt>
+        <dd>Conventions are appropriate normative references to the rules that that are used in the document
+        e.g. the use of keywords described in [[!RFC2119]].</dd>
+
+        <dt><a href="#definitions-and-linking">Definitions and Linking</a></dt>
+        <dd>Definitions provide descriptions of the terms that are used in the document.</dd>
+
+        <dt><a href="#abbreviations-and-linking">Abbreviations and Linking</a></dt>
+        <dd>Abbreviations contains a list of abbreviations used within the document.</dd>
+    </dl>
+    <!-- start conventions section -->
+    <section>
+        <h2>Conventions</h2>
+        <p>Following is an example of how the <strong>Convention</strong> section is displayed: </p>
+
+        <!-- start web-content for conventions -->
+        <aside class="web-content">
+            <p>The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED,
+              MAY, and OPTIONAL in the OMA document are marked up by <strong>ReSpec.</strong></p>
+        </aside>
+        <!-- /end web-code for conventions -->
+
+    <!-- start guidelines for conventions -->
+    <p>The guidelines for defining the <strong>Convention</strong> section are:</p>
+    <ul>
+        <li><p>The ReSpec JavaScript will automatically recognize the key words described in [[!RFC2119]].</p></li>
+        <li><p>These standard keywords will be marked up in colour.</p></li>
+    </ul>
+    <!-- /end guidelines for conventions -->
+
+    </section>
+    <!-- /end conventions section -->
+
+    <!-- start definitions and linking sub-section -->
+    <section>
+        <h2>Definitions and Linking</h2>
+        <p>This section contains two sub-sections: </p>
+
+        <dl>
+            <dt><a href="#definitions">Definitions</a></dt>
+            <dd>It describes how to construct a table of definitions.</dd>
+
+            <dt><a href="#linking-to-definitions">Linking to Definitions</a></dt>
+            <dd>It describes how to refer, from anywhere within the document, to an existing definition. </dd>
+       </dl>
+
+        <section>
+          <h2>Definitions</h2>
+          <p> Following is an example of how the <strong>Definition</strong> section is displayed: </p>
+
+          <!-- start web-content for definitions -->
+          <aside class="web-content">
+                <dl>
+                  <dt><dfn>LWM2M Bootstrap Server Account</dfn></dt>
+                  <dd>LWM2M Security Object Instance with Bootstrap Server Resource true.</dd>
+
+                  <dt><dfn>Term</dfn></dt>
+                  <dd>The description of term goes here ... </dd>
+                </dl>
+          </aside>
+          <!-- /end web-content for definitions -->
+
+          <p>The code for this example is: </p>
+
+          <!-- start code-content for definitions -->
+          <aside class="code-content">
+&lt;!-- start definitions -->
+    &lt;dl>
+      &lt;dt>&lt;dfn>LWM2M Bootstrap Server Account&lt;/dfn>&lt;/dt>
+      &lt;dd>LWM2M Security Object Instance with Bootstrap Server Resource true&lt;/dd>
+      &lt;dt>&lt;dfn>Term&lt;dfn>&lt;/dt>
+      &lt;dd>The description of term goes here ... &lt;/dd>
+    &lt;/dl>
+&lt;!-- /end definitions -->
+          </aside>
+          <!-- /end code-content for definitions -->
+
+          <!-- start guidelines for definitions -->
+          <p>The guidelines for defining the <strong>Definition</strong> section are:</p>
+          <ul>
+              <li><p>This table is constructed manually.</p></li>
+              <li><p><code>&lt;dl&gt;</code> definition list element contains a definition list.</p></li>
+              <li><p><code>&lt;dt&gt;</code> definition term element is used to provide a header or title to the concept to describe later.</p></li>
+              <li><p><code>&lt;dd&gt;</code> definition description element contains the description of the title or header.</p></li>
+              <li><p><code>&lt;dfn&gt;</code>term<code>&lt;dfn&gt;</code> element defines a particular <strong>term</strong>, in the <strong>Definitions</strong> section of the document.</p></li>
+              <li><p>Further reading:<a href="https://www.w3.org/wiki/HTML/Elements/dfn"> https://www.w3.org/wiki/HTML/Elements/dfn</a></p></li>
+          </ul>
+
+          <aside class="example">
+              Try <a href="http://www.w3schools.com/tags/tryit.asp?filename=tryhtml_dfn_1" target="_blank"><code>&lt;dfn&gt;</code></a>
+          </aside>
+
+        </section>
+          <!-- /end guidelines for definitions -->
+
+        <!-- start linking to definitions -->
+        <section>
+          <h2>Linking to Definitions</h2>
+            <p>Please refer to the section Linking <a href="#to-definitions">to Definitions</a></p>
+        </section>
+        <!-- /end to linking defintions -->
+
+
+    </section>
+    <!-- /end definitions and linking sub-section -->
+
+    <!-- start abbreviations and linking -->
+    <section>
+    <h2>Abbreviations and Linking </h2>
+    <p>This section contains two sub-sections:</p>
+    <dl>
+          <dt><a href="#abbreviations">Abbreviations</a></dt>
+          <dd>It describes how to construct a list of abbreviations.</dd>
+
+          <dt><a href="#linking-to-abbreviations">Linking to Abbreviations</a></dt>
+          <dd>It describes how to refer, from anywhere within the document, to an existing abbreviation. </dd>
+    </dl>
+
+    <!-- start abbreviation subsection -->
+        <section>
+            <h2>Abbreviations</h2>
+
+            <p> Following is an example of how the <strong>Abbreviation</strong> section is displayed: </p>
+
+            <!-- start web-content for abbreviations -->
+            <aside class="web-content">
+                <!-- start abbreviation -->
+                    <dl>
+
+                      <dt><abbr title="LightweightM2M">LWM2M</abbr></dt>
+                      <dd>Lightweight Machine to Machine.</dd>
+
+                      <dt><abbr title="Redefining Specifications">ReSpec</abbr></dt>
+                      <dd>W3C Javascript technology to automatically render technical documents in the browwer.</dd>
+
+                   </dl>
+                <!-- /end abbreviation -->
+            </aside>
+            <!-- /end web-content for abbreviations -->
+
+            <p>The code for this example is: </p>
+
+            <!-- start code-content for abbreviations -->
+            <aside class="code-content">
+    &lt;!-- start abbreviation -->
+        &lt;dl>
+            &lt;dt>&lt;abbr title="LightweightM2M">LWM2M&lt;/abbr>&lt;/dt>
+            &lt;dd>Lightweight Machine to Machine.&lt;/dd>
+
+            &lt;dt>&lt;abbr title="Redefining Specifications">ReSpec&lt;/abbr>&lt;/dt>
+            &lt;dd>W3C Javascript technology to automatically render technical documents in the browwer.&lt;/dd>
+        &lt;/dl>
+    &lt;!-- /end abbreviation -->
+            </aside>
+            <!-- /end code-content for abbreviations -->
+
+            <!-- start guidelines for abbreviations -->
+            <p>The guidelines for defining the <strong>Abbreviations</strong> section are:</p>
+            <ul>
+                  <li><p>This table is constructed manually.</p></li>
+                  <li><p><code>&lt;dl&gt;</code> element contains a definition list.</li>
+                  <li><p><code>&lt;dt&gt;</code> definition term element is used to provide a header or title to the concept to describe later.</p></li>
+                  <li><p><code>&lt;dd&gt;</code> definition description element contains the description of the title or header.</p></li>
+                  <li><p>The <code>&lt;abbr&gt;</code> element represents an abbreviation or acronym.</p></li>
+                  <li><p><code>&lt;title&gt;</code> attribute it is used to provide a title which expands when hovering over the abbreviation.</p></li>
+                  <li><p>A particular abbreviation only need to be defined once in a document.</p></li>
+                  <li><p>The <code>&lt;title&gt;</code> attribute provides the description that is expanded when hovering
+                  over the abbreviation.</p></li>
+                  <li><p>Further reading: <a href="https://www.w3.org/wiki/HTML/Elements/abbr" target="_blank">
+                  https://www.w3.org/wiki/HTML/Elements/abbr</a></p></li>
+            </ul>
+            <!-- /end guidelines for abbreviations -->
+            <aside class="example">
+                <p>Try <a href="http://www.w3schools.com/tags/tryit.asp?filename=tryhtml_abbr_test" target="_blank"><code>&lt;abbr&gt;</code></a></p>
+            </aside>
+
+        </section>
+        <!-- /end abbreviations -->
+
+        <!-- start linking to abbreviations -->
+        <section>
+          <h2>Linking to Abbreviations</h2>
+          <p2>For Linking to Abbreviations, please refer to the section Linking<a href="#to-abbreviations"> to abbreviations</a>.</p>
+
+        </section>
+      <!-- /end linking to abbreviation -->
+
+  </section>
+  <!-- /end abbreviations and linking -->
+
+</section>
+<!-- /end  terminology and conventions section -->
+
+<!-- start introduction -->
+<section class="informative">
+<h2>Introduction</h2>
+
+    <p>Following is an example of how the <strong>Introduction</strong> section is displayed:</p>
+
+    <!-- start web-content introduction -->
+    <aside class="web-content">
+        <p>See above <a href="#introduction">Introduction</a> section as an example of displaying.</p>
+    </aside>
+    <!-- /end web-content introduction -->
+
+    <p>The code for this example is:</p>
+
+    <!-- start code-content for introduction -->
+    <aside class="code-content">
+&lt;!-- start introduction -->
+&lt;section class="informative">
+   &lt;h2>Introduction&lt;/h2>
+
+   &lt;p>Text goes here.&lt;p>
+&lt;/section>
+&lt;!-- /end introduction -->
+    </aside>
+    <!-- /end code-content for introduction -->
+
+    <!-- start guidelines for introduction -->
+    <p>The guidelines for defining the <strong>Introduction</strong> section are:</p>
+    <ul>
+        <li><p>Introduction is an "informative" section that <strong>MUST</strong> be defined in the body of the document in order to be displayed.</p></li>
+        <li><p><code>class="informative"</code> attribute is used by <strong>ReSpec</strong> to automatically add the text: <strong><em>"This section is non-normative."</em></strong> immediately after the title of the section.</p></li>
+        <li><p>After closing the section with the element: <code>&lt;/section&gt;</code>, you need to add the following comment as a clear way to indicate the end of the section: <code>&lt;!-- /end introduction --&gt;</code></p></li>
+
+    </ul>
+    <!-- /end guidelines for introduction -->
+
+</section>
+<!-- /end introduction -->
+
+<!-- start html constructors -->
+<section>
+<h2>HTML Constructors </h2>
+<p>The following list provides an overview of the main group of HTML constructors used in the constructions of the OMA Technical Specifications:</p>
+<dl>
+    <dt><a href="#sections-and-subsections">Sections and Subsections</a></dt>
+    <dd>In this section you will find out how to construct sections and sub-sections.</dd>
+
+    <dt><a href="#titles">Titles</a></dt>
+    <dd>This sections contains HTML constructors to define all type of titles: document title, sections and nested sections.</dd>
+
+    <dt><a href="#paragraphs">Paragraphs</a></dt>
+    <dd>This sections indicates how to construct a paragraph.</dd>
+
+    <dt><a href="#text-boxes">Text Boxes</a></dt>
+    <dd>This section defines a series of options to insert text or code inside of a text box.</dd>
+
+    <dt><a href="#lists">Lists</a></dt>
+    <dd>Sometimes, you will need to insert text inside of a text box. This section explains how to construct different type of text boxes: plain examples, examples with code or examples with highlighted code.</dd>
+
+    <dt><a href="#insert">Insert</a></dt>
+    <dd>This sections explains how to insert in the document: comments, images, tables and standard statements.</dd>
+
+    <dt><a href="#linking">Linking</a></dt>
+    <dd>This section indicates how to insert links in your document to internal sections or content or references to external documentation. </dd>
+
+    <dt><a href="#rich-text">Rich Text</a></dt>
+    <dd>This section describes HTML constructors that provide rich text such as: strong, emphasis, code, etc.</dd>
+
+</dl>
+
+<!-- start section and subsections -->
+<section>
+    <h2>Sections and Subsections</h2>
+    <p>It is subdivided in further three sections:</p>
+    <dl>
+        <dt><a href="#informative-sections">Informative Sections</a></dt>
+        <dd><p>This section explains how to construct informative sections. <strong>ReSpec</strong> adds, automatically, a statement to indicate that the section is <strong>informative</strong> rather than <strong>normative</strong>.</p></dd>
+
+        <dt><a href="#common-sections">Common Sections</a></dt>
+        <dd><p>This section explains how to constructed standard chapters or sections. These sections are normative.</p></dd>
+
+        <dt><a href="#nested-sections">Nested Sections</a></dt>
+        <dd>This chapter explains how to nest sections inside of sections.</dd>
+    </dl>
+    <p>In HTML each document chapter is constructed with the element <code>&lt;section&gt;</code>. The same element is used to construct sub-sections
+       within the chapter; these sub-sections need to be nested inside of each other.
+    </P>
+
+    <!-- start informative section -->
+    <section>
+        <h2>Informative Sections</h2>
+        <p>
+        </p>
+
+        <p>Following is a link to an example of how the <strong>Informative</strong> section is displayed:</p>
+
+        <!-- start web-content informative -->
+        <aside class="web-content">
+              <p> See <a href= "#introduction">Introduction</a> section as an example.</p>
+        </aside>
+        <!-- /end web-content informative -->
+
+        <p>The code for this example is:</p>
+
+        <!-- start code-content for informative section -->
+        <aside class="code-content">
+&lt;!-- start informative section -->
+&lt;section class="informative">
+    &lt;h2>Introduction&lt;/h2>
+    &lt;p> ... text goes here ...&lt;/p>
+&lt;/section>
+&lt;!-- /end informative section -->
+&lt;!-- /end informative section -->
+&lt;!-- /end informative section -->
+        </aside>
+        <!-- /end code-content for informative section -->
+
+        <!-- start guidelines for informative sections -->
+        <p>The guidelines for defining the <strong>Informative</strong> sections are:</p>
+        <ul>
+            <li><p><code>&lt;section class="informative"&gt;</code> element defines the beginning and <code>&lt;section&gt;</code> defines the end of a new informative section.</p></li>
+            <li><p><code>class ="informative"</code> is used by ReSpec to mark this section as INFORMATIVE. This means that the content in this section is not mandatory.</p></li>
+            <li><p>ReSpec will automatically add a statement such as: "This section is non-normative".</p></li>
+            <li><p>As a good practice, add the comment: <code>&lt;!--  start introduction --&gt;</code> to indicate the beginning of the section and then at the end of the section add: <code>&lt;!--  /end introduction --&gt;</code>.</p></li>
+        </ul>
+        <!-- /end guidelines for informative sections -->
+
+    </section>
+    <!-- /end informative section -->
+
+    <!-- start common section -->
+    <section>
+        <h2>Common Sections</h2>
+        <p><strong>Sections</strong> are used to create chapters inside of a document. Sections can also be <a href="#nested">nested</a>, (sections inside of sections).
+        </p>
+
+        <p>Following is a link to an example of how a <strong>Common</strong> section is displayed:</p>
+
+            <!-- start web-content -->
+        <aside class="web-content">
+            <p>See example at the beginning of this section, <a href="#common_section">Common Sections</a>.</p>
+        </aside>
+            <!-- /end web-content -->
+        <p>The code for this example is:</p>
+
+        <!-- sart code-content for common sections -->
+        <aside class="code-content">
+&lt;!-- start section 1 -->
+&lt;section>
+&lt;h2>Section Title &lt;/h2>
+    &lt;p>Text goes here.&lt;/p>
+&lt;/section>
+&lt;!-- /end section 1 -->
+
+&lt;!-- start section 2 -->
+&lt;section>
+    &lt;h2>Another Sub-section&lt;/h2>
+    &lt;p> Text goes here. &lt;/p>
+&lt;/section>
+&lt;!-- /end section 2 -->
+        </aside>
+        <!-- /end code-content for common sections -->
+
+        <!-- start guidelines for common sections -->
+        <p>The guidelines for defining the <strong>Common</strong> sections are:</p>
+        <ul>
+            <li><p><code>&lt;section&gt;</code> and <code>&lt;/section&gt;</code> elements define the beginning and end of a new section.</p></li>
+            <li><p><code>&lt;h2&gt;</code> element defines the title of the section.</p></li>
+            <li><p>Please use <strong>ONLY</strong> <code>&lt;h2&gt;</code> titles.</p></li>
+            <li><p>Comments need to be added at the beginning: <code>&lt;!-- start section x --&gt;</code> and at the end of the section: <code>&lt;!-- /end section x --&gt;</code>.</p></li>
+            <li><p>A section element, <code>&lt;section&gt;</code>, MUST be followed by <code>&lt;h2&gt;</code>,a header type 2 element. Otherwise, the content of the section will not be displayed in the Index.</p></li>
+        </ul>
+        <!-- /end guidelines for common sections -->
+
+        <!-- start try common sections -->
+        <aside class="example">
+            <p> Try <a href="http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_section" target="_blank">common section</a>
+        </aside>
+        <!-- /end try commond sections -->
+
+    </section>
+    <!-- /end common section -->
+
+    <!-- start nested sections -->
+    <section>
+        <h2>Nested Sections</h2>
+        <p> </p>
+
+        <p>Following is a link to an example of how the <strong>nested sections</strong> are displayed:</p>
+
+            <!-- start web-content for nested sections -->
+            <aside class="web-content">
+                <p> See an example of nested sections in the <a href="#toc">index</a> of this document.
+            </aside>
+            <!-- /end web-content nested sections -->
+
+        <p>The code for a similar example is:</p>
+
+            <!-- start code-content for nested sections -->
+           <aside class="code-content">
+&lt;!-- start section level 1-->
+&lt;section>
+    &lt;h2>Level 1&lt;/h2>
+    &lt;p> ... content for level 1 ...   &lt;/p>
+
+        &lt;!-- start section Level 2-->
+        &lt;section>
+          &lt;h2>Level 2&lt;/h2>
+          &lt;p> ... content for level 2 ...  &lt;/p>
+
+              &lt;!-- start section level 3 -->
+              &lt;section>
+                &lt;h2>Level 3&lt;/h2>
+                &lt;p> ... content for level 3 ...  &lt;/p>
+            &lt;/section>
+            &lt;!-- /end section level 3 -->
+
+        &lt;/section>
+        &lt;!-- /end section level 2 -->
+
+&lt;/section>
+&lt;!-- /end section level 1-->
+            </aside>
+            <!-- /end web-content for nested sections -->
+
+        <!-- start guidelines for nested sections -->
+        <p>The guidelines for using <strong>nested sections</strong> are:</p>
+
+            <ul>
+                <li><p><code>&lt;section&gt;</code> element is used to define the section content.</p></li>
+                <li><p><code>&lt;h2&gt;</code> element is used to provide a title to that section.</p></li>
+                <li><p>Further <code>&lt;sections&gt;</code> and <code>&lt;h2&gt;</code> are used to create nested sections.</p></li>
+                <li><p>Use comments to indicate the beginning: <code>&lt;!-- start section --&gt;</code> and the end of each section: <code>&lt;!-- /end section --&gt;</code>.</p></li>
+            </ul>
+        <!-- /end guidelines for nested sections -->
+
+        <!-- start try nested sections -->
+        <aside class="example">
+            <p> Try <a href="http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_section" target="_blank">nested sections</a>
+        </aside>
+        <!-- /end try nested sections -->
+
+    </section>
+    <!-- /end nested sections -->
+
+</section>
+<!-- /end sections and subsections -->
+
+<!-- start titles -->
+<section>
+    <h2>Titles</h2>
+    <p>This chapter is divided in three sections:</p>
+    <dl>
+        <dt><a href="#document-title">Document Title</a></dt>
+        <dd><p>This chapter indicates how to construct the title of the document.</p></dd>
+
+        <dt><a href="#section-title">Section Title</a></dt>
+        <dd><p>In this section you will see how to provide a title to each chapter whithin the document.</p></dd>
+
+        <dt><a href="#subtitles">Subtitles</a></dt>
+        <dd><p>This section explain how to construct the subtitles of nested sections.</p></dd>
+    </dl>
+    <!-- start document title -->
+    <section>
+        <h2>Document Title</h2>
+        <p>Following is a link to an example of how the <strong>document title</strong> is displayed:</p>
+
+            <!-- start web-content for document title -->
+            <aside class="web-content">
+              <p>See <a href="#title">title</a> example in the front page of this document</p>
+            </aside>
+            <!-- /end web-content document title -->
+
+        <p>The code for this example is:</p>
+
+            <!-- start code-content for document title -->
+            <aside class="code-content">
+   &lt;Head>
+   &lt;title>OMA ORG HTML User Guide&lt;/title>
+   &lt;!-- further instructions go in the next lines before the end of head -->
+   &lt;/Head>
+            </aside>
+            <!-- /end web-content for document title -->
+
+        <!-- start guidelines for document title -->
+        <p>The guidelines for using the <strong>document title</strong> are:</p>
+
+            <ul>
+                <li><p><code>&lt;title&gt;</code> element <strong>ONLY</strong> can be used once in the document.</p></li>
+                <li><p>The location of the title is in the <code>&lt;HEAD&gt;</code> section of the document.</p></li>
+                <li><p>Please Note: <b>This is important</b> DO NOT reuse <code>&lt;title&gt;</code> element in any other part of the document.</p></li>
+            </ul>
+        <!-- /end guidelines for document title -->
+
+        <!-- start try title -->
+        <aside class="example">
+            <p> Try <a href="http://www.w3schools.com/tags/tryit.asp?filename=tryhtml_basic" target="_blank">document title</a>
+        </aside>
+        <!-- /end try title -->
+
+    </section>
+    <!-- /end document title -->
+
+    <!-- start section title -->
+    <section>
+        <h2>Section Title</h2>
+        <p>Each section MUST contain a title. In OMA specifications it is recommended a single element, <code>&lt;h2&gt;</code> to represent section titles.</p>
+
+        <p>Following is a link to an example of how the <strong>section title</strong> is displayed:</p>
+
+            <!-- start web-content for section title -->
+            <aside class="web-content">
+               <p>See <a href="#section_title">section title</a> at the beginning of this section.</p>
+            </aside>
+            <!-- /end web-content section title -->
+
+        <p>The code for a similar example is:</p>
+
+            <!-- start code-content for section title -->
+            <aside class="code-content">
+&lt;!-- start section -->
+&lt;section>
+    &lt;h2&gt;Section Title&lt;/h2&gt;
+    &lt;p&gt;Content goes here ... &lt;/p&gt;
+&lt;/section>
+&lt;!-- /end section -->
+
+            </aside>
+            <!-- end web-content for section title -->
+
+        <!-- start guidelines for section title -->
+        <p>The guidelines for using <strong>section title</strong> are:</p>
+
+            <ul>
+                <li><p><code>&lt;h2&gt;</code> element is the only type of title to be used in the document.</p></li>
+                <li><p><code>&lt;h1&gt;</code>, <code>&lt;h3&gt;</code> ... , <code>&lt;h6&gt;</code> are <strong>NOT</strong> allowed in OMA specifications.</p></li>
+                <li><p><strong>ReSpec</strong> automatically numbers each section and sub-sections when <code>&lt;h2&gt;</code> is used as a title of the section.</p></li>
+            </ul>
+        <!-- /end guidelines for section title -->
+
+        <!-- start try section title -->
+        <aside class="example">
+            <p> Try <a href="http://www.w3schools.com/tags/tryit.asp?filename=tryhtml_headers" target="_blank">section title</a>
+        </aside>
+        <!-- /end try section title -->
+
+    </section>
+    <!-- /end section title -->
+
+    <!-- /end start subsection titles -->
+    <section>
+        <h2>Subtitles</h2>
+        <p>The element to define section subsection titles is the same as the one used to define section titles: <code>&lt;h2&gt;</code></p>
+
+        <p>Following is a link to an example of how the <strong>subsection titles</strong> are displayed:</p>
+
+            <!-- start web-content for subsection titles -->
+            <aside class="web-content">
+                <p>Refer to the <a href="#toc">index</a> of this document to see how subsection titles are displayed when sections are nested.</p>
+            </aside>
+            <!-- /end web-content subsection titles -->
+
+        <p>The code for a similar example is:</p>
+
+            <!-- start code-content for subsection titles -->
+            <aside class="code-content">
+&lt;!-- start section level 1 -->
+&lt;section>
+    &lt;h2>Section Level 1&lt;/h2>
+    &lt;p>Text goes here ...&lt;/p>
+
+        &lt;!-- start section level 2 -->
+        &lt;section>
+            &lt;h2>Section Level 2&lt;/h2>
+              &lt;p>Text goes here ...&lt;/p>
+        &lt;/section>
+        &lt;!-- /end section level 2 -->
+
+&lt;/section>
+&lt;!-- /end section level 1 -->
+            </aside>
+            <!-- end web-content for subsection titles -->
+
+        <!-- start guidelines for subsection titles -->
+        <p>The guidelines for using section <strong>subsection titles</strong> are:</p>
+
+            <ul>
+                <li><p><code>&lt;h2&gt;</code> is used as a sub-section title in nested sections (sections within sections).</p></li>
+                <li><p><strong>ReSpec</strong> will detect the <code>&lt;h2&gt;</code> element nested in a sub-section within a section and it will automatically number the section accordingly.</p></li>
+            </ul>
+        <!-- /end guidelines for subsection titles -->
+
+        <!-- start try sub-section title -->
+        <aside class="example">
+            <p> Try <a href="http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_section" target="_blank">sub-section title</a>.</p>
+            <p>Please remember to use only <code>&lt;h2&gt;</code> titles only.</p>
+        </aside>
+        <!-- /end try sub-section title -->
+
+    </section>
+    <!-- /end subsection titles -->
+
+</section>
+<!-- /end titles -->
+
+<!-- start paragraph section -->
+<section>
+    <h2>Paragraphs</h2>
+    <!-- start common paragraphs -->
+    <section>
+        <h2>Common Paragraph</h2>
+
+        <p>Following is an example of how the <strong>paragraphs</strong> are displayed:</p>
+
+        <!-- start web-content for paragraphs -->
+        <aside class="web-content">
+            <p>The test cases are split in two categories, conformance and interoperability
+                test cases.</p>
+        </aside>
+        <!-- end web-content for paragraphs -->
+
+        <p>The code for this example is:</p>
+
+        <!-- start code-content for paragraphs -->
+        <aside class="code-content">
+ &lt;p>The test cases are split in two categories, conformance and interoperability test cases.&lt;/p>
+        </aside>
+        <!-- /end code-content for paragraphs -->
+
+        <!-- start guidelines for paragraphs -->
+        <p>The guidelines for using <strong>paragraphs</strong> are:</p>
+
+            <ul>
+                <li><p>Use <code>&lt;p&gt;</code> to hold the content of a paragraph and use <code>&lt;/p&gt;</code> when finished with the paragraph text.</p></li>
+            </ul>
+        <!-- /end guidelines for paragraphs -->
+
+        <!-- start try paragraph -->
+        <aside class="example">
+            <p> Try <a href="http://www.w3schools.com/tags/tryit.asp?filename=tryhtml_paragraphs1" target="_blank">paragraph</a>.</p>
+        </aside>
+        <!-- /end try paragraph -->
+
+    </section>
+    <!-- /end common paragraphs -->
+
+</section>
+<!-- /end paragraph section -->
+
+<!--start text box -->
+<section>
+  <h2>Text Boxes</h2>
+  <p>There are four types of text boxes described in this section:</p>
+
+  <dl>
+      <dt><a href="#blockquote">Blockquote</a></dt>
+      <dd><p>This section explains how to construct a blockquote to insert text copied from somewhere else.</p></dd>
+
+      <dt><a href="#text-in-a-preformatted-text-box">Text in a Preformatted Text Box</a></dt>
+      <dd><p>This section indicates what constructor to use to present text aligment in the same way as it was input.</p></dd>
+
+      <dt><a href="#code-in-a-preformatted-text-box">Code in a Preformatted Text Box</a></dt>
+      <dd><p>This section shows you how to construct examples that contains software code.</p></dd>
+
+      <dt><a href="#text-or-code-in-a-non-preformatted-text-box">Text or Code in a Non-preformatted Text Box</a></dt>
+      <dd><p></p></dd>
+
+  </dl>
+    <!-- start blockquote -->
+    <section>
+        <h2>Blockquote</h2>
+        <p> </p>
+        <p>Following is an example of how text <strong>blockquote</strong> is displayed:</p>
+
+        <!-- start web-content for blockquote -->
+        <aside class="web-content">
+          <blockquote>
+            "The text quote goes here."
+          </blockquote>
+        </aside>
+        <!-- /end web-content for blockquote -->
+
+        <p>The code for this example is:</p>
+
+        <!-- start code-content for blockquote -->
+        <aside class="code-content">
+  &lt;blockquote>
+     "The text quote goes here."
+  &lt;/blockquote>
+        </aside>
+        <!-- /end code-content for blockquote -->
+
+        <!-- start guidelines for blockquote -->
+        <p>The guidelines for using <strong>blockquote</strong> are:</p>
+
+            <ul>
+                <li><p>Use <code>&lt;blockquote&gt;</code> tag to open the quote and <code>&lt;/blockquote&gt;</code> to end the quote.</p></li>
+                <li><p>The content inside a <code>&lt;blockquote&gt;</code> element MUST be quoted from another source.</p></li>
+            </ul>
+        <!-- /end guidelines for blockquote -->
+
+        <!-- start try blockquote -->
+        <aside class="example">
+            <p> Try <a href="http://www.w3schools.com/tags/tryit.asp?filename=tryhtml_blockquote_test" target="_blank">blockquote</a>.</p>
+        </aside>
+        <!-- /end try blockquote -->
+
+    </section>
+    <!-- /end blockquote -->
+
+    <!-- start preformatted text box -->
+    <section>
+        <h2>Text in a Preformatted Text Box</h2>
+        <p> </p>
+
+        <p>Following is an example of how <strong>preformatted text</strong> is displayed:</p>
+
+          <!-- start pre -->
+            <pre class="example">
+              Text goes here and maintains the same format
+                  as it has been
+                                 input.
+            </pre>
+          <!-- /end pre -->
+
+        <p>The code for this example is:</p>
+
+            <!-- start code-content for preformatted text -->
+            <aside class="code-content">
+    &lt;!-- start example -->
+      &lt;pre class="example">
+        Text goes here and maintains the same format
+            as it has been
+                           input.
+      &lt;/pre>
+    &lt;!-- /end example -->
+            </aside>
+            <!-- end web-content for preformatted text -->
+
+        <!-- start guidelines for preformatted text -->
+        <p>The guidelines for using the <strong>preformatted text</strong> are:</p>
+
+            <ul>
+                <li><p>The example text box is used to display text only (without any HTML tag).</p></li>
+                <li><p><code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code> tags wraps the text to display inside of the text box.</p></li>
+                <li><p>The text inside of a <code>&lt;pre&gt;</code> element is displayed with the same format as it was input with. This means that there is no need for further HTML formatting.</p></li>
+                <li><p>The title of the text box is called <strong>Example</strong>.</p></li>
+                <li><p>The number display next to <strong>Example</strong> is automatically allocated by <strong>ReSpec</strong></p></li>
+            </ul>
+
+            <!-- start try preformatted text box -->
+            <aside class="example">
+                <p> Try <a href="http://www.w3schools.com/tags/tryit.asp?filename=tryhtml_pre" target="_blank">text in a  preformatted text box</a>.</p>
+            </aside>
+            <!-- /end try preformatted text box -->
+
+        <!-- /end guidelines for preformatted text-->
+
+    </section>
+    <!-- /end preformatted text box -->
+
+    <!-- start example with code -->
+    <section>
+      <h2>Code in a Preformatted Text Box</h2>
+      <p> </p>
+
+      <p>Following is an example of how <strong>code</strong> can be displayed in a <strong>prefomatted text box</strong>:</p>
+
+          <!-- start preformatted code  -->
+          <pre class="example highlight">
+
+              &lt;!-- start guidelines for paragraphs -->
+              &lt;p>The guidelines for using &lt;strong>paragraphs&lt;/strong> are:&lt;/p>
+
+                 &lt;ul>
+                    &lt;li>&lt;p>Use the element paragraph &lt;p&gt; to hold the content of a paragraph.&lt;/p>&lt;/li>
+                 &lt;/ul>
+
+              &lt;!-- /end guidelines for paragraphs -->
+          </pre>
+          <!-- /end preformatted code -->
+
+        <p>The code for this example is: ** IS EXAMPLE 13 THE CORRECT COLOR BOX? SHOULD THIS BE THE PURPLE CODE CONTENT BOX?</p>
+          <!-- start example for code -->
+          <pre class="example highlight">
+          &lt;pre class="example highlight">
+              &lt;!-- start guidelines for paragraphs -->
+              &lt;p>The guidelines for using &lt;strong>paragraphs&lt;/strong> are:&lt;/p>
+
+                 &lt;ul>
+                   &lt;li>&lt;p>Use the element paragraph &lt;p&gt; to hold the content of a paragraph.&lt;/p>&lt;/li>
+                 &lt;/ul>
+
+              &lt;!-- /end guidelines for paragraphs -->
+          &lt;/pre>
+          </pre>
+          <!-- /end example for code -->
+
+
+      <!-- start guidelines for preformatted code -->
+      <p>The guidelines for using <strong>code in a preformatted text box</strong> are:</p>
+
+          <ul>
+              <li><p>The <code>&lt;pre class="example highlight"&gt;</code> tag and attribute class and the <code>&lt;/pre&gt;</code> tag define a text box which can contain software code.</p></li>
+              <li><p>The syntax text is highlighted in colour.</p></li>
+              <li><p>The text inside of a <code>&lt;pre&gt;</code> element is displayed with the same format as it was input in the text box.</p></li>
+              <li><p>The title is called <strong>"Example"</strong> and the associated number is increased automatically by <strong>ReSepec</strong>.</p></li>
+              <li><p>In each line of code, it is necessary to substitute the character <code>&lt;</code> by its equivalent in letters &amp;lt; .</p></li>
+              <li><p>The text box displays its own background colour.</p></li>
+          </ul>
+      <!-- /end guidelines for preformatted code  -->
+    </section>
+    <!-- /end example with code  -->
+
+    <!-- start text or code in a non-preformatted text box -->
+    <section>
+      <h2>Text or Code in a Non-preformatted Text Box</h2>
+      <p> </p>
+
+      <p>Following is an example of how <strong>text or code</strong> can be displayed in a <strong>non-preformatted text box</strong>:</p>
+      <!-- start aside -->
+        <aside class="example">
+          <p>Text that goes here doesn't maintain the same format
+                as it was
+                             input.</p>
+         Text without html tags.
+         More text.
+         <ul>
+              <li>This is an item in unordered list.</li>
+                  <li>Another item.</li>
+         </ul>
+         &lt;p>&lt;code>element&lt;/code>&lt;/p>
+        </aside>
+      <!-- /end aside -->
+
+    <p>The code for this example is:</p>
+
+        <!-- start code-content for text in non-preformatted box -->
+        <aside class="code-content">
+&lt;!-- start example -->
+  &lt;aside class="example">
+     &lt;p>Text that goes here doesn't maintain the same format
+              as it was
+                        input.&lt;/p>
+         Text without html tags.
+         More text.
+         &lt;ul>
+              &lt;li>This is an item in unordered list.&lt;/li>
+                  &lt;li>Another item.&lt;/li>
+         &lt;/ul>
+         &lt;p>&lt;code>element&lt;/code>&lt;/p>
+  &lt;/aside>
+&lt;!-- /end example -->
+        </aside>
+        <!-- end web-content for text or code in non-preformatted box -->
+
+    <!-- start guidelines for text or code in non-preformatted box -->
+    <p>The guidelines for using the <strong>non-preformatted text</strong> are:</p>
+
+        <ul>
+            <li><p><code>&lt;aside&gt;</code> element allows the use of HTML tags inside of the text box.</p></li>
+            <li><p><code>&lt;aside&gt;</code> and <code>&lt;/aside&gt;</code> tags wrap the text to display inside of the text box.</p></li>
+            <li><p>The text inside of an <code>&lt;aside&gt;</code> element doesn't display with the same format as it was input in the text box. HTML tags are allowed inside of this text box.</p></li>
+            <li><p>The title of the text box is called <strong>Example</strong>.</p></li>
+            <li><p>The number displayed next to the <strong>Example</strong> is automatically allocated by <strong>ReSpec</strong></p></li>
+        </ul>
+
+        <!-- start try text or code in non-preformatted box -->
+        <aside class="example">
+            <p> Try <a href="http://www.w3schools.com/tags/tag_aside.asp" target="_blank">text or code in a non-preformatted text box</a>.</p>
+        </aside>
+        <!-- /end try text or code in non-preformatted box -->
+
+    <!-- /end guidelines for text or code in non-preformatted box-->
+    </section>
+    <!-- /end text or code in a non-preformatted text box -->
+
+</section>
+<!-- /end text box section -->
+
+<!-- start lists -->
+<section>
+<!-- start definition list -->
+<h2>Lists</h2>
+<p>This section is subdivided in three sections:</p>
+<dl>
+    <dt><a href="#definition-list">Definition List</a><dt>
+    <dd><p>This section indicates how to construct a simple list that contains two parts a description term and a data description link to that term.</p></dd>
+
+    <dt><a href="#unordered-list">Unordered List</a><dt>
+    <dd><p>This section indicates how to construct an unordered list with bullets.</p></dd>
+
+    <dt><a href="#ordered-list">Ordered List</a><dt>
+    <dd><p>This section indicates how to construc an ordered list with numbers.</p></dd>
+</dl>
+
+<section>
+  <h2>Definition List </h2>
+  <p> </p>
+
+  <p>Following is an example of how the <strong>definition list</strong> is displayed:</p>
+
+      <!-- start web-content for definition list -->
+      <aside class="web-content">
+
+        <!-- start definition list -->
+            <dl>
+
+              <dt><p>LWM2M-1 Bootstrap</p></dt>
+              <dd><p>This interface is used for ...</p></dd>
+
+              <dt><p>LWM2M-2 Client Registration</p></dt>
+              <dd><p>This interface is used for adding info ...</p></dd>
+
+            </dl>
+        <!-- end definition list -->
+
+      </aside>
+      <!-- /end web-content definition list -->
+
+  <p>The code for this example is:</p>
+
+      <!-- start code-content for definition list -->
+      <aside class="code-content">
+&lt;!-- start definition list -->
+    &lt;dl>
+
+      &lt;dt>&lt;p>LWM2M-1 Bootstrap&lt;p>&lt;/dt>
+      &lt;dd>&lt;p>This interface is used for ...&lt;p>&lt;/dd>
+
+      &lt;dt>&lt;p>LWM2M-2 Client Registration&lt;p>&lt;/dt>
+      &lt;dd>&lt;p>This interface is used for adding info ...&lt;p>&lt;/dd>
+
+    &lt;/dl>
+&lt;!-- /end definition list -->
+      </aside>
+      <!-- end web-content for definition list -->
+
+  <!-- start guidelines for definition list -->
+  <p>The guidelines for using the <strong>definition list</strong> are:</p>
+
+      <ul>
+          <li><p><code>&lt;dl&gt;</code> this element contains the <strong>definition list</strong>.</p></li>
+          <li><p><code>&lt;dt&gt;</code> <strong>definition term</strong> element is used to provide a header or title to the <strong>term</strong> to describe.</p></li>
+          <li><p><code>&lt;dd&gt;</code> <strong>definition description</strong> element contains the description of the <strong>term</strong>.</p></li>
+          <li><p>The header is displayed in <strong>bold</strong> and <em>italic</em>.</p></li>
+      </ul>
+
+      <!-- start try definition list -->
+      <aside class="example">
+          <p> Try <a href="http://www.w3schools.com/tags/tag_dl.asp" target="_blank">definition list</a>.</p>
+      </aside>
+      <!-- /end try definition list -->
+
+  <!-- /end guidelines for definition list -->
+</section>
+<!-- /end definition list -->
+
+<!-- start bullent points unordered -->
+<section>
+    <h2>Unordered List</h2>
+    <p> </p>
+
+    <p>Following is an example of how the <strong>unordered list</strong> is displayed:</p>
+
+        <!-- start web-content for unordered list -->
+        <aside class="web-content">
+            <ul>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+            </ul>
+        </aside>
+        <!-- /end web-content unordered list -->
+
+    <p>The code for this example is:</p>
+
+        <!-- start code-content for unordered list -->
+        <aside class="code-content">
+&lt;!-- start unordered list -->
+&lt;ul>
+    &lt;li>List Item 1&lt;/li>
+    &lt;li>List Item 2&lt;/li>
+    &lt;li>List Item 3&lt;/li>
+&lt;/ul>
+&lt;!-- /end unordered list -->
+        </aside>
+        <!-- end web-content for unordered list -->
+
+    <!-- start guidelines for unordered list -->
+    <p>The guidelines for using <strong>unordered list</strong> are:</p>
+
+        <ul>
+            <li><p><code>&lt;ul&gt;</code> element is used to open an <strong>unordered list</strong>.</p></li>
+            <li><p><code>&lt;li&gt;</code> element <strong>list item</strong> is used to define each item of that list.</p></li>
+        </ul>
+
+        <!-- start try unordered list -->
+        <aside class="example">
+            <p> Try <a href="http://www.w3schools.com/tags/tag_ul.asp" target="_blank">unordered list</a>.</p>
+        </aside>
+        <!-- /end try unordered list -->
+
+    <!-- /end guidelines for unordered list -->
+</section>
+<!-- /end bullet points unordered -->
+
+<!-- start bullent points ordered -->
+<section>
+    <h2>Ordered List</h2>
+    <p> </p>
+
+    <p>Following is an example of how the <strong>ordered list</strong> is displayed:</p>
+
+        <!-- start web-content for ordered list -->
+        <aside class="web-content">
+          <!-- start ordered list -->
+          <ol>
+              <li>Function 1</li>
+              <li>Function 2</li>
+              <li>Function 3</li>
+          </ol>
+          <!-- end ordered list -->
+
+        </aside>
+        <!-- /end web-content ordered list -->
+
+    <p>The code for this example is:</p>
+
+        <!-- start code-content for ordered list -->
+        <aside class="code-content">
+&lt;!-- start ordered list -->
+&lt;ol>
+    &lt;li>Function 1&lt;/li>
+    &lt;li>Function 2&lt;/li>
+    &lt;li>Function 3&lt;/li>
+&lt;/ol>
+&lt;!-- /end ordered list -->
+        </aside>
+        <!-- end web-content for ordered list -->
+
+    <!-- start guidelines for ordered list -->
+    <p>The guidelines for using <strong>ordered list</strong> are:</p>
+
+        <ul>
+            <li><p><code>&lt;ol&gt;</code> element is used to open <strong>ordered list</strong>.</p></li>
+            <li><p><code>&lt;li&gt;</code> element <strong>list item</strong> is used to define each item of that list.</p></li>
+        </ul>
+
+        <!-- start try ordered list -->
+        <aside class="example">
+            <p> Try <a href="http://www.w3schools.com/tags/tag_ol.asp" target="_blank">ordered list</a>.</p>
+        </aside>
+        <!-- /end try ordered list -->
+
+    <!-- /end guidelines for ordered list -->
+</section>
+<!-- /end bullet points ordered -->
+
+</section>
+<!-- /end lists -->
+
+    <!-- start insert -->
+    <section>
+        <h2>Insert</h2>
+        <p>This chapters contains the following topics:</p>
+        <dl>
+            <dt><a href="#comments">Comments</a></dt>
+            <dd><p>It is considered good practice to insert comments among html tags. The comments aim to identify sections and groups of html code.</p></dd>
+
+            <dt><a href="#images">Images</a></dt>
+            <dd><p>This section indicates how to insert images and later link back to them.</p></dd>
+
+            <dt><a href="#tables">Tables</a></dt>
+            <dd><p>This section provides the constructors to create tables and merge cells in a table.</p></dd>
+
+            <dt><a href="#standard-statements">Standard Statements</a></dt>
+            <dd><p>This section indicates how easy it is to write standard statements.</p></dd>
+
+        </dl>
+
+        <!-- start insert editorial comments -->
+        <section>
+            <h2>Comments</h2>
+            <p> </p>
+
+            <p><strong>Comments</strong> are added to the html constructors but they are not displayed by the browser.</p>
+
+                <!-- start web-content for comments -->
+                <aside class="web-content">
+                   <!-- comment goes here -->
+                </aside>
+                <!-- /end web-content comments -->
+
+            <p>The code for this example is:</p>
+
+                <!-- start code-content for comments -->
+                <aside class="code-content">
+&lt;!-- comment goes here -->
+                </aside>
+                <!-- end web-content for comments -->
+
+            <!-- start guidelines for comments -->
+            <p>The guidelines for using <strong>comments</strong> are:</p>
+
+                <ul>
+                    <li><p><code>&lt;!-- start of xxx --&gt;</code> Add a comment at the begining of an html element that is grouping a concept.</p></li>
+                    <li><p><code>&lt;!-- /end of xxx --&gt;</code> Add an end comment after closing the html element.</p></li>
+                </ul>
+            <!-- /end guidelines for comments -->
+        </section>
+        <!-- /end insert editorial comments -->
+
+        <!-- start images section -->
+        <section>
+            <h2>Images</h2>
+            <p>This section contains two topics:</p>
+            <dl>
+                <dt><a href="#figures">Figures</a>
+                <dd><p>This chapter describe how to insert an image inline with the text.</p></dd>
+
+                <dt><a href="#linking-to-figures">Linking to Figures</a>
+                <dd><p>This chapter indicates how to link from anywhere within the document to an existing figure.</p></dd>
+            </dl>
+
+
+            <!-- start figures -->
+            <section>
+                <h2>Figures</h2>
+                <p>Following is an example of how <strong>figures</strong> are displayed:</p>
+
+                <!-- start web-content for figures -->
+                <aside class="web-content">
+                    <figure id="lwm2m-arch">
+                        <img src="images/Interface_Protocol_Stack.png" />
+                        <figcaption>The overall architecture of the LWM2M Enabler.</figcaption>
+                    </figure>
+                </aside>
+                <!-- start web-content for figures -->
+
+                <p>The code for this example is:</p>
+
+                <!-- start code-content for figures -->
+                <aside class="code-content">
+    &lt;!-- start figure -->
+    &lt;figure id="lwm2m-arch">
+        &lt;img src="images/Interface_Protocol_Stack.png"/>
+        &lt;figcaption>The overall architecture of the LWM2M Enabler&lt;/figcaption>
+    &lt;/figure>
+    &lt;!-- /end figure -->
+
+
+                </aside>
+                <!-- /end code-content for figures -->
+
+                <p>The guidelines for using <strong>figures</strong> are:</p>
+                <!-- start guidelines for figures -->
+                <ul>
+                    <li><p>The <code>&lt;figure&gt;</code> element allows inserting images in the document. The image will
+                        be stored in the corresponding image folder.</p></li>
+                    <li><p>OMA specifications has an image folder for each type of document.</p></li>
+                    <li>Each image contains:
+                         <ul>
+                             <li><p><code>&lt;figure id="figure_id"&gt;</code>. This <code>&lt;id&gt;</code> attribute is used to provide an unique reference for the figure, which is used to link to the figure from anywhere within the document.</p></li>
+                             <li><p><code>&lt;img src="images/figure_name.png"&gt;</code> indicates where the file is stored.</p></li>
+                             <li><p><code>&lt;figcaption&gt;</code> element is used as the title of the figure. This title is placed at the footer of the figure and also it is used as the title of the figure in the <strong>Table of Figures</strong></p></li>
+                         </ul>
+                    </li>
+                </ul>
+
+                <!-- start try figures -->
+                <aside class="example">
+                    <p> Try <a href="http://www.w3schools.com/tags/tag_figure.asp" target="_blank">figures</a>.</p>
+                </aside>
+                <!-- /end try figures -->
+                <!-- /end guidelines for figures -->
+
+            </section>
+            <!-- /end figures -->
+
+            <!-- start links to figures -->
+            <section>
+                <h2>Linking to Figures</h2>
+                <p>To see how to link to a figure already defined in the document, please refer to <a href="#to-figures">Linking to Figures</a></p>
+            </section>
+            <!-- /end linking to figures -->
+
+        </section>
+        <!-- /end figures section -->
+
+        <!-- start tables -->
+        <section>
+            <h2>Tables</h2>
+            <p>This section is dedicated to create tables and merge cells in a table.</p>
+            <dl>
+                  <dt><a href="#Table 4x3">Table 4x3</a></dt>
+                  <dd>This section indicates how to construct any type of tables.</dd>
+
+                  <dt><a href="#merging-cells-in-a-table">Mergingn Cells in a Table</a></dt>
+                  <dd>This section indicates how to merge cells in a table.</dd>
+            </dl>
+
+
+            <!-- start table 4x3 -->
+            <section>
+              <h2>Table 4x3</h2>
+
+              <p>Following is an example of how <strong>tables</strong> are displayed:</p>
+
+              <!-- start web-content for tables -->
+          <aside class= web-content>
+              <table id="4x3">
+                  <caption> 4 columns x 3 rows</caption>
+                  <thead>
+                    <tr>
+                      <td></td>
+                      <td>Column 2</td>
+                      <td>Column 3</td>
+                      <td>Column 4</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Row 1</td>
+                      <td>Cell 1-2</td>
+                      <td>Cell 1-3</td>
+                      <td>Cell 1-4</td>
+                    </tr>
+                    <tr>
+                      <td>Row 2</td>
+                      <td>Cell 2-2</td>
+                      <td>Cell 2-3</td>
+                      <td>Cell 2-4</td>
+                    </tr>
+                    <tr>
+                      <td>Row 3</td>
+                      <td>Cell 3-2</td>
+                      <td>Cell 3-3</td>
+                      <td>Cell 3-4</td>
+                    </tr>
+                  </tbody>
+              </table>
+          </aside>
+          <!-- /end web-content for tables -->
+
+          <p>The code for this example is:</p>
+
+          <!-- start code-content for tables -->
+      <aside class= code-content>
+        &lt;table id="4x3">
+          &lt;caption> 4 columns x 3 rows&lt;/caption>
+             &lt;thead>
+                &lt;tr>
+                  &lt;td>&lt;/td>
+                  &lt;td>Column 2&lt;/td>
+                  &lt;td>Column 3&lt;/td>
+                  &lt;td>Column 4&lt;/td>
+                &lt;/tr>
+              &lt;/thead>
+              &lt;tbody>
+                &lt;tr>
+                  &lt;td>Row 1&lt;/td>
+                  &lt;td>Cell 1-2&lt;/td>
+                  &lt;td>Cell 1-3&lt;/td>
+                  &lt;td>Cell 1-4&lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                  &lt;td>Row 2&lt;/td>
+                  &lt;td>Cell 2-2&lt;/td>
+                  &lt;td>Cell 2-3&lt;/td>
+                  &lt;td>Cell 2-4&lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                  &lt;td>Row 3&lt;/td>
+                  &lt;td>Cell 3-2&lt;/td>
+                  &lt;td>Cell 3-3&lt;/td>
+                  &lt;td>Cell 3-4&lt;/td>
+                &lt;/tr>
+              &lt;/tbody>
+        &lt;/table>
+      </aside>
+      <!-- /end code-content for tables -->
+
+      <p>The guidelines for creating <strong>tables</strong> are:</p>
+      <!-- start guidelines for creating tables -->
+      <ul>
+          <li><p><code>&lt;table&gt;</code> element represents data with more than one dimension, in the form of a table.</p></li>
+          <li><p><code>&lt;caption&gt;</code> element contains the <strong>title</strong> of the table. <strong>ReSpec</strong> will automatically display it at the bottom of the <code>&lt;table&gt;</code>.</p></li>
+          <li><p>Also, <strong>ReSpec</strong>will use the <code>&lt;caption&gt;</code> value to automatically populate the title in the <strong>Table of Figures</strong>.</p></li>
+          <li><p><code>&lt;thead&gt;</code> element represents the column labels (headers) for the parent <code>&lt;table&gt;</code> element.</p></li>
+          <li><p><code>&lt;tbody&gt;</code> element represents a block of rows that form the body of the parent element, the <code>&lt;table&gt;</code>.</p></li>
+          <li><p><code>&lt;tr&gt;</code> element represents a row of cells in a <code>&lt;table&gt;</code> element.</p></li>
+          <li><p><code>&lt;td&gt;</code> element represents a data cell in a <code>&lt;table&gt;</code> element.</p></li>
+          <li><p>Note that some HTML editors support the editing of tables in a what you see is what you get approach</p></li>
+      </ul>
+
+      <!-- start try tables -->
+      <aside class="example">
+          <p> Try <a href="http://www.w3schools.com/tags/tag_table.asp" target="_blank">tables</a>.</p>
+      </aside>
+      <!-- /end try tables -->
+
+      <!-- start table editor -->
+      <aside class="example">
+          <p>Try <a href="http://truben.no/table/" target="_blank">table editor</a> to create a table for the first time.</p>
+          <p>Unfortunately the following rules MUST be followed when using this table editor. Otherwise, the table will not display correctly.</p>
+          <ul>
+              <li><p>Add <code>&lt;thead&gt;</code> and <code>&lt;/thead&gt;</code> elements to nest the first pair of <code>&lt;tr&gt;</code> and <code>&lt;/tr&gt;</code>. This will create a displayable table header.</p></li>
+              <li><p>Substitute in this first pair of <code>&lt;tr&gt;</code> and <code>&lt;/tr&gt;</code> all the table data elements <code>&lt;th&gt;</code> and <code>&lt;/th&gt;</code> for the standard <code>&lt;td&gt;</code> and <code>&lt;/td&gt;</code> elements.</p></li>
+              <li><p>Add <code>&lt;tbody&gt;</code> and <code>&lt;/tbody&gt;</code> elements to group all the table rows. </p></li>
+          </ul>
+
+      </aside>
+      <!-- /end try figures -->
+      <!-- /end guidelines for creating tables -->
+        </section>
+        <!-- /end table 4x3 -->
+
+            <!-- start merging cells -->
+            <section>
+              <h2>Merging Cells in a Table</h2>
+
+
+              <p>Following is an example of how to <strong>merge cells</strong> in a table:</p>
+
+                            <!-- start web-content for merging cells -->
+                        <aside class= web-content>
+                            <table id="merging-cells">
+                                <caption>Merging Cells</caption>
+                                <thead>
+                                  <tr>
+                                    <td></td>
+                                    <td>Column 2</td>
+                                    <td>Column 3</td>
+                                    <td>Column 4</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td rowspan="2">Merge Rows</td>
+                                        <!-- rowspan = "2"merges two cells going down two rows from here-->
+                                    <td>Cell 1-2</td>
+                                    <td>Cell 1-3</td>
+                                    <td>Cell 1-4</td>
+                                  </tr>
+                                  <tr>
+                                        <!-- rowspan = "2" implies that cell2-1 needs to be removed -->
+                                    <td>Cell 2-2</td>
+                                    <td colspan="2">Cell 2-3</td>
+                                        <!-- colspan = 2 will merge two cells towards the right across two columns-->
+                                        <!-- colspan = 2 implies that cell 2-4 needs to be removed -->
+                                  </tr>
+                                  <tr>
+                                    <td>Row 3</td>
+                                    <td>Cell 3-2</td>
+                                    <td>Cell 3-3</td>
+                                    <td>Cell 3-4</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </aside>
+                        <!-- /end web-content for merging cells -->
+
+                        <p>The code for this example is:</p>
+
+                        <!-- start code-content for merging cells -->
+                    <aside class= code-content>
+                      &lt;table id="4x3">
+                        &lt;caption>Merging Cells&lt;/caption>
+                           &lt;thead>
+                              &lt;tr>
+                                &lt;td>&lt;/td>
+                                &lt;td>Column 2&lt;/td>
+                                &lt;td>Column 3&lt;/td>
+                                &lt;td>Column 4&lt;/td>
+                              &lt;/tr>
+                            &lt;/thead>
+                            &lt;tbody>
+                              &lt;tr>
+                                &lt;rowspan="2">Merge Rows&lt;/td>
+                                    &lt;!-- rowspan = "2"merges two cells going down two rows from here-->
+                                &lt;td>Cell 1-2&lt;/td>
+                                &lt;td>Cell 1-3&lt;/td>
+                                &lt;td>Cell 1-4&lt;/td>
+                              &lt;/tr>
+                              &lt;tr>
+                                    &lt;!-- rowspan = "2"merges two cells going down two rows -->
+                                &lt;td>Cell 2-2&lt;/td>
+                                &lt;td colspan ="2">Cell 2-3&lt;/td>
+                                    &lt;!-- colspan = 2 will merge two cells towards the right accross two columns-->
+                                    &lt;!-- colspan = 2 implies that cell 2-4 needs to be removed -->
+                              &lt;/tr>
+                              &lt;tr>
+                                &lt;td>Row 3&lt;/td>
+                                &lt;td>Cell 3-2&lt;/td>
+                                &lt;td>Cell 3-3&lt;/td>
+                                &lt;td>Cell 3-4&lt;/td>
+                              &lt;/tr>
+                            &lt;/tbody>
+                      &lt;/table>
+                    </aside>
+                    <!-- /end code-content for merging cells -->
+
+                    <p>The guidelines for <strong>merging cells</strong> are:</p>
+                    <!-- start guidelines for merging cells -->
+                    <ul>
+                        <li><p><code>&lt;rowspan="x"&gt;</code> attribute is used to span a row from the cell where it is defined to a number of rows (down) indicated by <strong>"x"</strong>.</p></li>
+                        <li><p><code>&lt;colspan="x"&gt;</code> attribute is used to span a column from the cell where it is defined to a number of columns (to the right) defined by <strong>"x"</strong>.</p></li>
+                    </ul>
+                    <!-- /end guidelines for merging cells -->
+
+            </section>
+            <!-- /end merging cells -->
+
+            <!-- start linking to tables -->
+            <section>
+              <h2>Linking to Tables</h2>
+              <p>Please refer to the section <strong>Linking</strong> <a href="#to-tables">Linking to Tables</a></p>
+            </section>
+            <!-- /end linking to tables -->
+
+        </section>
+        <!-- /end tables -->
+
+        <!-- start standards statements -->
+        <section>
+            <h2>Standard Statements</h2>
+            <p> </p>
+
+            <!-- start standards statements -->
+                <p>Following is an example of how the <strong>standards statements</strong> are displayed: </p>
+
+                <!-- start web-content for standards statements -->
+                <aside class="web-content">
+                      <p>The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED,
+                      MAY, and OPTIONAL on the OMA Specifications document are markup by <strong>ReSpec.</strong></p>
+                </aside>
+                <!-- /end web-code for standards statements -->
+
+            <p>The code for this example is:</p>
+
+                <!-- start code-content for standards statements -->
+                <aside class="code-content">
+&lt;p>The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED,
+MAY, and OPTIONAL on the OMA Specifications document are markup by &lt;strong>ReSpec.&lt;/strong>&lt;/p>
+                </aside>
+                <!-- /end code-code for standards statements -->
+
+            <!-- start guidelines for standards statements -->
+            <p>The guidelines for defining the <strong>standards statements</strong> section are:</p>
+            <ul>
+                <li><p>Write the standard keyword in capital letters.</p></li>
+                <li><p>The ReSpec function will automatically recognize standards declarations; as defined in [[!RFC2119]]
+                  and the standard keyword will be marked up in colour.</p></li>
+            </ul>
+            <!-- /end guidelines for standards statements -->
+        </section>
+        <!-- /end standards keywords -->
+
+        <!-- start insert external content -->
+        <section>
+          <h2>to External Content</h2>
+            <ul>
+              <li>Note: OMA discourages the practice of inserting in OMA Technical Documents paragraphs from external content. In these cases it is better to insert a link to external content.</li>
+              <li>Please refer to <a href="#to_uri">Linking to External Content, URI's</a>.</li>
+            </ul>
+        </section>
+        <!-- /end insert external content -->
+
+    </section>
+    <!-- /end insert -->
+
+    <!-- start linking to section -->
+    <section>
+      <h2>Linking</h2>
+      <p>This section deals with inserting links in the specifications:</p>
+      <!-- start linking content -->
+      <dl>
+          <dt><a href="#to-definitions">to Definitions.</a></dt>
+          <dd>Once a definition has been defined in the <strong>Terminology and Conventions</strong> section it can be linked from anywhere within the document.</dd>
+
+          <dt><a href="#to-abbreviations">to Abbreviations.</a></dt>
+          <dd>This section indicates how to link to existing abbreviations.</dd>
+
+          <dt><a href="#to-figures">to Figures.</a></dt>
+          <dd>This section indicates how to link from anywhere within the document to an existing figures.</dd>
+
+          <dt><a href="#to-sections-and-subsections">to Sections and Subsections.</a></dt>
+          <dd>Here it is explain how to easily link to sections and subsections from anywhere within the document.</dd>
+
+          <dt><a href="#to-external-resources">to External Resources</a></dt>
+          <dd>This section indicates how to insert a reference to an external resource.</dd>
+
+          <dt><a href="#to-tables">to Tables. </a></dt>
+          <dd>This section indicates how to make reference to an existing table.</dd>
+
+          <dt><a href="#to-oma-dictionary">to OMA Dictionary.</a></dt>
+          <dd>This section indicates how to request to input in the OMAS Reference Database a new document that can be used as a normative or informative reference.</dd>
+
+          <dt><a href="#to-normative-reference">to Normative Reference. </a></dt>
+          <dd>This section explains how to insert a normative reference without inputting all the related information.</dd>
+
+          <dt><a href="#to-informative-reference">to Informative Reference.</a></dt>
+          <dd>This section explains how to insert an informative reference without inputting all the related information.</dd>
+
+      </dl>
+      <!-- end linking content -->
+
+      <!-- start linking to definitions -->
+      <section>
+        <h2 id="to_definitions">to Definitions</h2>
+          <p>Once the definition has been inserted in the <a href="#definitions">Definitions</a> section, it can be used anywhere within the document. </p>
+
+          <p>Following is an example of how a link to <strong>definitions</strong> is displayed:</p>
+
+              <!-- start web-content for linking to definitions -->
+              <aside class="web-content">
+                <p> It is then easy to link to that <a>term</a> from any where within the
+                  document. You can even link when for some reason the <a title="term">terms</a> are plural.</p>
+              </aside>
+              <!-- /end web-content linking to definitions -->
+
+          <p>The code for this example is:</p>
+
+              <!-- start code-content for linking to definitions -->
+          <aside class="code-content">
+&lt;!-- start paragraph -->
+  &lt;p> It is then easy to link to that &lt;a>term&lt;/a> from any where within the
+  document. You can even link when for some reason the &lt;a title="term">terms&lt;/a> are plural.&lt;/p>
+&lt;!-- /end paragraph -->
+          </aside>
+              <!-- end web-content for linking to definitions -->
+
+          <!-- start guidelines for linking to definitions -->
+          <p>The guidelines for using <strong>linking to definitions</strong> are:</p>
+
+              <ul>
+                  <li><p>Once the term is defined in the <a href="#definitions">Definitions</a> section, it is possible to link back to it from anywhere within the document by writing the term to define between the <code>&lt;a&gt;</code> constructor; e.g.:<code> &lt;a&gt;</code>term<code>&lt;/a&gt;</code>.</p></li>
+                  <li><p>It is possible even to link to plural variations of the term defined in the <a href="#definitions">Definitions</a> section by using: <code>&lt;a title="term_name"&gt;term_name_in_plural&lt;/a&gt;</code> as described in the above example.</p></li>
+                  <li><p>For further reading related to the <code>&lt;a&gt;</code> element: <a href="http://www.w3.org/wiki/HTML/Elements/a" target=_"blank">http://www.w3.org/wiki/HTML/Elements/a</a>S</p></li>
+              </ul>
+          <!-- /end guidelines for linking to definitions -->
+      </section>
+      <!-- /end to linking to defintions -->
+
+      <!-- start linking to abbreviations -->
+      <section>
+        <h2>to Abbreviations</h2>
+          <p>The abbreviations can be used anywhere within the document once they have been defined in the <a href="#abbreviations">Abbreviation</a> section. </p>
+
+          <p>Following is an example of how <strong>abbreviations</strong> are displayed:</p>
+
+              <!-- start web-content for linking to abbreviations -->
+              <aside class="web-content">
+                 <p>The LWM2M Client ..</p>
+              </aside>
+              <!-- /end web-content linking to abbreviations -->
+
+          <p>The code for this example is:</p>
+
+              <!-- start code-content for linking to abbreviations -->
+              <aside class="code-content">
+&lt;p>The LWM2M Client ..&lt;/p>
+              </aside>
+              <!-- end web-content for linking to abbreviations -->
+
+          <!-- start guidelines for linking to abbreviations -->
+          <p>The guidelines for linking to <strong>abbreviations</strong> are:</p>
+
+              <ul>
+                  <li><p>Use the abbreviation without any tag once it has been defined in the <strong>Abbreviation</strong> section.</p></li>
+                  <li><p><strong>ReSpec</strong> function will parse the document looking for that abbreviation in the document. Once it is found, <strong>ReSpec</strong> will mark up the word with a dotted line.</p></li>
+                  <li><p>With the mouse hover over the abbreviation to expand the definition.</p></li>
+                  <li><p>The <code>title</code> attribute contained within the <code>&lt;abbr title="abbreviation_description"&gt;</code> element provies the description that is expanded when hovering over the abbreviation.</p></li>
+                  <li><p>For further information, refer to the <a href="#abbreviations">Abbreviation</a> section.</p></li>
+
+              </ul>
+          <!-- /end guidelines for linking to abbreviations -->
+      </section>
+      <!-- /end linking to abbreviations -->
+
+      <!-- start linking to figures -->
+      <section>
+        <h2>to Figures</h2>
+        <p>Following is an example of how <strong>linking to a figure</strong> is displayed:</p>
+
+        <!-- start web-content for link to figures -->
+        <aside class="web-content">
+<p>At some point in the text you can insert a link to an image <a href="#lwm2m-arch"></a> and then continue with the text.</p>
+        </aside>
+        <!-- /end web-content for link to figures -->
+
+        <p>The code for this example is:</p>
+
+        <!-- start code-content for link to figures -->
+        <aside class="code-content">
+&lt;p>At some point in the text you can insert a link to an image &lt;a href="#lwm2m-arch">&lt;/a> and then continue with the text.&lt;/p>
+        </aside>
+        <!-- /end code-content for link to figures -->
+
+        <p>The guidelines for using <strong>link to figures</strong> are:</p>
+        <!-- start guidelines for link to figures -->
+        <ul>
+            <li><p>Use <code>&lt;a href="#figure_id"&gt;</code> to link back to any image inserted in the document.</p></li>
+        </ul>
+
+        <!-- start try figures -->
+        <aside class="example">
+            <p> Try <a href="http://www.w3schools.com/tags/tag_figure.asp" target="_blank">figures</a>.</p>
+        </aside>
+        <!-- /end try figures -->
+
+        <!-- /end guidelines for link to figures -->
+
+      </section>
+      <!-- /end linking to figures -->
+
+      <!-- start linking to sections and subsections -->
+      <section>
+        <h2>to Sections and Subsections</h2>
+        <p>This section describes an easy way to create a link, from anywhere in the document, to any of the existing sections and subsections of the document.</p>
+
+        <p>Following is an example of how to links to <strong>sections and subsections</strong> are displayed:</p>
+
+            <!-- start web-content for linking to sections and subsections -->
+            <aside class="web-content">
+              <p>This is a link to the section called <a href="#linking">Linking</a>.</p>
+              <p>This other link points to the first subsection of the <strong>Linking</strong> section <a href="#to-definitions">to Definitions</a>.</p>
+            </aside>
+            <!-- /end web-content for linking to sections and subsections -->
+
+
+        <p>The code for this example is:</p>
+
+            <!-- start code-content for for linking to sections and subsections linking to sections and subsections -->
+            <aside class="code-content">
+&lt;p>This is a link to the section called &lt;a href="#linking">Linking&lt;/a>.&lt;/p>
+&lt;p>This other link points to the first subsection of the &lt;strong>Linking&lt;/strong> section &lt;a href="#to-definitions">to Definitions.&lt;/a>&lt;/p>
+
+            </aside>
+            <!-- end web-content for linking to sections and subsections -->
+
+        <!-- start guidelines for uri -->
+        <p>The guidelines for linking to <strong>sections and subsection</strong> are:</p>
+
+            <ul>
+                <li><p><strong>ReSpec</strong> marks automatically every section with its corresponding section <strong>id</strong>, e.g.: <code>&lt;section id="section_title"></code>. Therefore, the user doesn't need to define a section <strong>id</strong>. <strong>ReSepc</strong> does it by default.</p></li>
+                <li><p>The user only needs to create the anchor <code>&lt;a&gt;</code> at the point where he/she wants to link to the section or subsection. This link is formulated as e.g.: <code>&lt;a href="#section_title">Section_Title&lt;/a></code></p></li>
+                <li><p>Ensure that you use the SAME title as in the section or subsection. If the title has blank spaces you need to incorporate these blank spaces in the title as "-". E.g.: title = "to Definitions" the equivalent <strong>id</strong>="#to-definitions".</p></li>
+                <li><p>It is possible to use lower case when constructing the <strong>id</strong> value; see above.</p></li>
+            </ul>
+
+      </section>
+      <!-- /end linking to sections and subsections -->
+
+      <!-- start uri section -->
+      <section>
+              <h2>to External Resources</h2>
+              <p>External URI element is used to make a reference to a resource located outside of the document. </p>
+
+              <p>Following is an example of how <strong>URI's</strong> is displayed:</p>
+
+                  <!-- start web-content for uri -->
+                  <aside class="web-content">
+                    <p>Visit <a href="http://www.openmobilealliance.org/" target="_blank">OMA Public</a> pages.</p>
+                  </aside>
+                  <!-- /end web-content uri -->
+
+              <p>The code for this example is:</p>
+
+                  <!-- start code-content for uri -->
+                  <aside class="code-content">
+  &lt;p>
+    Visit &lt;a href="http://www.openmobilealliance.org/" target="_blank">text&lt;/a> pages.
+  &lt;/p>
+                  </aside>
+                  <!-- end web-content for uri -->
+
+              <!-- start guidelines for uri -->
+              <p>The guidelines for using <strong>uri's</strong> are:</p>
+
+                  <ul>
+                      <li><p><code>&lt;a href="URI" target="_blank"&gt;</code>text<code>&lt;/a&gt;</code> element and attribute are  used to open a link in a new browser page.</p></li>
+                      <li><p><code>&lt;URI&gt;</code> it is the identifier where the resource is stored.</p></li>
+                      <li><p><code>target="_blank"</code> this attribute is used by the browser to open the link in a new tab.</p></li>
+                      <li><p>(text) is the title that displays (i.e. OMA Public) and it can be clicked on.</p></li>
+                  </ul>
+
+                  <!-- start try uri -->
+                  <aside class="example">
+                      <p> Try <a href="http://www.w3schools.com/tags/tag_a.asp" target="_blank">uri's</a>.</p>
+                  </aside>
+                  <!-- /end try uri -->
+
+              <!-- /end guidelines for xxx -->
+      </section>
+      <!-- /end uri's section -->
+
+      <!-- start linking to a table -->
+      <section>
+      <h2>to Tables</h2>
+              <p>This section indicates how to make a reference to an exitent table. </p>
+
+              <p>Following is an example of how the <strong>linking to table</strong> is displayed:</p>
+
+              <ul>
+                  <li><p>First ensure that the table has defined an id as: <code>&lt;table id="table_id"&gt;</code>.</p></li>
+              </ul>
+                  <!-- start web-content for reference within the document -->
+                  <aside class="web-content">
+                        &lt;table id="merging-cells">
+                  </aside>
+
+                  <p>Then insert the <code>&lt;a&gt;</code> tag in the point of the text that you want to make the jump from.</p>
+
+                  <aside class="web-content">
+                       <p>This link points to an already defined table called: <a href="#merging-cells">Merging Cells</a>.</p>
+                  </aside>
+                  <!-- /end web-content reference within the document -->
+
+              <p>In this example, the code for introducing the reference to link to is:</p>
+
+              <aside class="code-content">
+&lt;table id="merging-cells">
+              </aside>
+
+              <p>The code for making the jump is:</p>
+                  <!-- start code-content for linking to a table  -->
+                  <aside class="code-content">
+&lt;!-- start section -->
+   &lt;p>This link points an already defined table called: &lt;a href="#merging-cells">Merging Cells&lt;/a>.&lt;/p>
+&lt;!-- /end section -->
+                  </aside>
+                  <!-- end web-content for linking to a table  -->
+
+              <!-- start guidelines for linking to a table  -->
+              <p>The guidelines for using <strong>linking to tables</strong> are:</p>
+
+                  <ul>
+                    <li><p>Ensure that the table has defined a "table_id" such e.g.: <code>&lt;table id="table_id"&gt;</code>.</p></li>
+                    <li><p>Then the tag <code>&lt;a href="#table_id"&gt;</code><em>text_to_display</em><code>&lt;a&gt;</code> is inserted in the point to make the jump from.</p></li>
+                  </ul>
+              <!-- /end guidelines for linking to a table  -->
+      </section>
+      <!-- /end linking to a table  -->
+
+      <!-- start oma dictionary -->
+      <section>
+          <h2> to OMA Dictionary</h2>
+          <p> </p>
+
+          <p>Following is an example of how references to the <strong>OMA Dictionary</strong> are displayed:</p>
+
+              <!-- start web-content for xxx -->
+              <aside class="web-content">
+                  <p>Please refer to <a href="#uri">URI's</a> for an example to link to external resources.</p>
+              </aside>
+              <!-- /end web-content xxx -->
+
+          <!-- start guidelines for xxx -->
+          <p>The guidelines for using <strong>OMA Dictionary</strong> are:</p>
+
+              <ul>
+                  <li><p>The OMA Dictionary can be found at: ** FILL IN</p></li>
+                  <li><p>First identify the word in the OMA Dictionary that you want to link to.</p></li>
+                  <li><p>Then create an external link (URI) within the document to link to that external resource.</p></li>
+              </ul>
+          <!-- /end guidelines for xxx -->
+      </section>
+      <!-- /end oma dictionary -->
+
+      <!-- start normative references -->
+      <section>
+          <h2>to Normative Reference</h2>
+          <p> </p>
+
+          <p>Following is an example of how <strong>normative references</strong> are displayed:</p>
+
+              <!-- start web-content for normative references -->
+              <aside class="web-content">
+                   <p>According to the architecture diagram [[!LightweightM2M-AD]], the uplink operations ...</p>
+              </aside>
+              <!-- /end web-content normative references -->
+
+          <p>The code for this example is:</p>
+
+              <!-- start code-content for normative references -->
+              <aside class="code-content">
+  &lt;!-- start xxx -->
+    &lt;p>According to the architecture diagram [[!LightweightM2M-AD]], the uplink operations ...&lt;/p>
+  &lt;!-- /end  xxx -->
+              </aside>
+              <!-- end web-content for normative references -->
+
+          <!-- start guidelines for normative references -->
+          <p>The guidelines for using <strong>normative references</strong> are:</p>
+
+              <ul>
+                  <li><p><strong>W3C</strong> and <strong>OMA Reference Database</strong></p></li>
+                      <ul>
+                              <li>These two databases contain documents defined by W3C, IETF and OMA.</li>
+                              <li>If the document is not listed, ReSpec will show an error message at the top-right-hand corner of the document.</li>
+                              <li>To insert a document in the OMA Reference Database, contact: helpdesk@omaorg.org</li>
+                      </ul>
+                  <li><p><code>[[!Doc_Reference]]</code> is the constructor to define a <strong>normative</strong> document anywhere within the document.</p></li>
+                  <li><p>The expression <code>[[!Doc_Reference]]</code> will trigger a look up in an OMA or W3C database and the relevant information will be incorporated to the document automatically.</p></li>
+              </ul>
+          <!-- /end guidelines for normative references -->
+      </section>
+      <!-- /end normative references -->
+
+      <!-- start informative reference -->
+      <section>
+          <h2>to Informative Reference</h2>
+          <p> </p>
+
+          <p>Following is an example of how the <strong>informative references</strong> are displayed:</p>
+
+              <!-- start web-content for informative references -->
+              <aside class="web-content">
+                <p> Kindly consult [[OMADICT]] for further reference.</p>
+              </aside>
+              <!-- /end web-content informative references -->
+
+          <p>The code for this example is:</p>
+
+              <!-- start code-content for informative references -->
+              <aside class="code-content">
+  &lt;!-- start xxx -->
+  &lt;p> Kindly consult [[OMADICT]] for further reference.&lt;/p>
+  &lt;!-- /end xxx -->
+              </aside>
+              <!-- end web-content for informative references -->
+
+          <!-- start guidelines for informative references -->
+          <p>The guidelines for using <strong>informative references</strong> are:</p>
+
+              <ul>
+                  <li><p><code>[[Doc_Reference]]</code> (without <strong>"!"</strong>) is the constructor used to define an <strong>informative</strong> document anywhere within the document.</p></li>
+                  <li><p>ReSpec will provide an error message if the document is not in the OMA or W3C Reference Database. See the top right hand corner of the browser window for any errors.</p></li>
+              </ul>
+          <!-- /end guidelines for informative references -->
+      </section>
+      <!-- /end informative reference -->
+
+    </section>
+    <!-- /end linking to section -->
+
+    <!-- start rich text -->
+    <section>
+    <h2>Rich Text</h2>
+    <p>This section deals with the following concepts:</p>
+
+    <!-- start description list -->
+    <dl>
+        <dt><a href="#bold">Bold</a></dt>
+        <dd>It provides an alternative to <code>bold</code> element.</dd>
+
+        <dt><a href="#strong">Strong</a></dt>
+        <dd>It indicates how to mark sentences or word as <strong>bold</strong>.</dd>
+
+        <dt><a href="#italic">Italic</a></dt>
+        <dd>It provides an alternative to display words or statements as: <em>italic</em>.</dd>
+
+        <dt><a href="#emphasis">Emphasis</a></dt>
+        <dd>It describes how to define <em>emphasis</em> in a sentence or word.</dd>
+
+        <dt><a href="#superscript">Superscript</a></dt>
+        <dd>It describes how to define <sup>Superscript</sup>.</dd>
+
+        <dt><a href="#subscript">Subscript</a></dt>
+        <dd>It describes how to define <sub>subscript</sub> words.</dd>
+
+        <dt><a href="#code">Code</a></dt>
+        <dd>It describes how to define <code>code</code> in a sentence.</dd>
+
+        <dt><a href="#line-break">Line Break</a></dt>
+        <dd>It describes how to introduce a line break in html.</dd>
+
+        <dt><a href="#underline">Underline</a></dt>
+        <dd>This elment <u>underline</u> should not be used.</dd>
+
+    </dl>
+    <!-- /end descripton list -->
+
+      <!-- start bold -->
+      <section>
+        <h2>Bold</h2>
+        <p>OMA discourages the usage of <code>&lt;b&gt;</code>. Instead, please use <code>&lt;strong&gt;</code>. See <a href="#strong">Strong</a> section.
+      </section>
+      <!-- /end bold -->
+
+      <!-- start strong -->
+      <section>
+          <h2 id="#strong">Strong</h2>
+          <p> </p>
+
+          <p>Following is an example of how <strong>strong</strong> is displayed:</p>
+
+              <!-- start web-content for strong -->
+              <aside class="web-content">
+                <p> The description of the <strong>main functionality</strong> supported by the Client ...</p>
+              </aside>
+              <!-- /end web-content strong -->
+
+          <p>The code for this example is:</p>
+
+              <!-- start code-content for strong -->
+              <aside class="code-content">
+    &lt;!-- start  -->
+    &lt;p>The description of the &lt;strong>main functionality&lt;/strong> supported by the Client ...&lt;/p>
+    &lt;!-- /end  -->
+              </aside>
+              <!-- end web-content for strong -->
+
+          <!-- start guidelines for strong -->
+          <p>The guidelines for using <strong>strong</strong> are:</p>
+
+              <ul>
+                  <li><p><code>&lt;strong&gt;</code> element displays the content between the tags in bold.</p></li>
+                  <li><p><code>&lt;b&gt;</code> element MUST NOT be used.</p></li>
+              </ul>
+
+          <!-- start try strong -->
+          <aside class="example">
+              <p> Try <a href="http://www.w3schools.com/tags/tag_strong.asp" target="_blank">strong</a>.</p>
+          </aside>
+          <!-- /end try strong -->
+
+          <!-- /end guidelines for strong -->
+      </section>
+      <!-- /end strong -->
+
+      <!-- start italic -->
+      <section>
+          <h2> Italic</h2>
+          <p>The italic element <code>&lt;i&gt;</code> element MUST NOT be used. Instead please use <a href="#emphasis">emphasis</a>.</p>
+      </section>
+      <!-- /end italic -->
+
+      <!-- start emphasis -->
+      <section>
+          <h2 id="#emphasis">Emphasis</h2>
+          <p> </p>
+
+          <p>Following is an example of how <strong>emphasis</strong> element is displayed:</p>
+
+              <!-- start web-content for emphasis -->
+              <aside class="web-content">
+                   <p> The description of the <em>main functionality</em> supported by the Client ...</p>
+              </aside>
+              <!-- /end web-content emphasis -->
+
+          <p>The code for this example is:</p>
+
+              <!-- start code-content for emphasis -->
+              <aside class="code-content">
+&lt;!-- start  -->
+  &lt;p>The description of the &lt;em>main functionality&lt;/em> supported by the Client ...&lt;/p>
+&lt;!-- /end  -->
+              </aside>
+              <!-- end web-content for emphasis -->
+
+          <!-- start guidelines for emphasis -->
+          <p>The guidelines for using <strong>emphasis</strong> are:</p>
+
+              <ul>
+                  <li><p><code>&lt;em&gt;</code> element displays the content between the tags in italic.</p></li>
+                  <li><p><code>&lt;i&gt;</code> element <strong>MUST NOT</strong> be used.</p></li>
+              </ul>
+
+          <!-- start try emphasis -->
+          <aside class="example">
+              <p> Try <a href="http://www.w3schools.com/tags/tag_em.asp" target="_blank">emphasis</a>.</p>
+          </aside>
+          <!-- /end try emphasis -->
+
+          <!-- /end guidelines for emphasis -->
+      </section>
+      <!-- /end emphasis -->
+
+      <!-- start supercript -->
+      <section>
+          <h2>Superscript</h2>
+          <p> </p>
+
+          <p>Following is an example of how the <strong>superscript</strong> element <code>&lt;sup&gt;</code> is displayed:</p>
+
+              <!-- start web-content for superscript -->
+              <aside class="web-content">
+                 <p>E = mc<sup>2</sup></p>
+              </aside>
+              <!-- /end web-content superscript -->
+
+          <p>The code for this example is:</p>
+
+              <!-- start code-content for superscript -->
+          <aside class="code-content">
+&lt;!-- start  -->
+  &lt;p>E = mc&lt;sup>2&lt;/sup>&lt;/p>
+&lt;!-- /end  -->
+          </aside>
+          <!-- end web-content for superscript -->
+
+          <!-- start guidelines for superscript -->
+          <p>The guidelines for using <strong>superscript</strong> are:</p>
+
+              <ul>
+                  <li><p><code>&lt;sup&gt;</code> element is used to represent a superscript character(s).</p></li>
+              </ul>
+
+          <!-- start try superscript -->
+          <aside class="example">
+              <p> Try <a href="http://www.w3schools.com/tags/tag_sup.asp" target="_blank">superscript</a>.</p>
+          </aside>
+          <!-- /end try superscript -->
+
+          <!-- /end guidelines for superscript -->
+      </section>
+      <!-- /end superscript -->
+
+      <!-- start subscript -->
+      <section>
+          <h2>Subscript</h2>
+          <p> </p>
+
+          <p>Following is an example of how the <strong>subscript</strong> element <code>&lt;sub&gt;</code> is displayed:</p>
+
+              <!-- start web-content for subscript -->
+              <aside class="web-content">
+                <p> ... H<sub>2</sub>O  ... </p>
+              </aside>
+              <!-- /end web-content subscript -->
+
+          <p>The code for this example is:</p>
+
+              <!-- start code-content for subscript -->
+          <aside class="code-content">
+&lt;!-- start  -->
+  &lt;p> ... H&lt;sub>2&lt;/sub>O  ... &lt;/p>
+&lt;!-- /end  -->
+          </aside>
+          <!-- end web-content for subscript -->
+
+          <!-- start guidelines for subscript -->
+          <p>The guidelines for using <strong>subscript</strong> are:</p>
+
+              <ul>
+                  <li><p><code>&lt;sub&gt;</code> element is used to represent a subscript character(s).</p></li>
+              </ul>
+          <!-- /end guidelines for subscript -->
+
+          <!-- start try subscript -->
+          <aside class="example">
+              <p> Try <a href="http://www.w3schools.com/tags/tag_sub.asp" target="_blank">subscript</a>.</p>
+          </aside>
+          <!-- /end try subscript -->
+
+      </section>
+      <!-- /end subscript -->
+
+      <!-- start code -->
+      <section>
+          <h2>Code</h2>
+          <p> </p>
+
+          <p>Following is an example of how the <strong>code</strong> element <code>&lt;code&gt;</code> is displayed:</p>
+
+              <!-- start web-content for code -->
+              <aside class="web-content">
+                <p>The tag to represent a <strong>code</strong> is: <code>&lt;code&gt;</code>.</p>
+                <p><code>A piece of computer code</code></p>
+              </aside>
+              <!-- /end web-content code -->
+
+          <p>The code for this example is:</p>
+
+              <!-- start code-content for code -->
+          <aside class="code-content">
+&lt;!-- start  -->
+    &lt;p>The tag to represent a &lt;strong>code&lt;/strong> is: &lt;code>&lt;code&gt;&lt;/code>.&lt;/p>
+    &lt;p>&lt;code>A piece of computer code&lt;/code>&lt;/p>
+&lt;!-- /end  -->
+          </aside>
+          <!-- end web-content for code -->
+
+          <!-- start guidelines for code -->
+          <p>The guidelines for using <strong>code</strong> are:</p>
+
+              <ul>
+                  <li><p><code>&lt;code&gt;</code> element is used to display a code content as seen in the above examples.</p></li>
+              </ul>
+          <!-- /end guidelines for code -->
+
+          <!-- start try code -->
+          <aside class="example">
+              <p> Try <a href="http://www.w3schools.com/tags/tag_code.asp" target="_blank">code</a>.</p>
+          </aside>
+          <!-- /end try code -->
+
+      </section>
+      <!-- /end code -->
+
+      <!-- start line break -->
+      <section>
+          <h2>Line Break</h2>
+
+          <p>Following is an example of how the <strong>line break</strong> element <code>&lt;br /&gt;</code> is displayed:</p>
+
+              <!-- start web-content for line break -->
+              <aside class="web-content">
+                <p>Line breaks are used to<br />break a line to the next line.</p>
+              </aside>
+              <!-- /end web-content line break -->
+
+          <p>The code for this example is:</p>
+
+              <!-- start code-content for line break -->
+          <aside class="code-content">
+&lt;!-- start  -->
+  &lt;p>Line breaks are used to&lt;br />break a line to the next line.&lt;/p>
+&lt;!-- /end  -->
+          </aside>
+          <!-- end web-content for line break -->
+
+          <!-- start guidelines for line break -->
+          <p>The guidelines for using <strong>line break</strong> are:</p>
+
+              <ul>
+                  <li><p><code>&lt;br /&gt;</code> element is used for breaking a line to the next line.</p></li>
+              </ul>
+          <!-- /end guidelines for line break -->
+
+          <!-- start try line break -->
+          <aside class="example">
+              <p> Try <a href="http://www.w3schools.com/tags/tag_br.asp" target="_blank">line break</a>.</p>
+          </aside>
+          <!-- /end try line break -->
+
+      </section>
+      <!-- /end line break -->
+
+      <!-- start underline -->
+      <section>
+         <h2>Underline</h2>
+         <aside class="web-content">
+           <p>OMA discourages the usage of <u>underline</u>. The representation of this element can be easily mistaken by a URI.</p>
+           <p> Instead it is recommended to use &lt;strong&gt;<strong>underline</strong>&lt;/strong&gt;.</p>
+       </aside>
+      </section>
+      <!-- /end underline -->
+
+
+    </section>
+    <!-- /end rich text -->
+
+
+</section>
+<!-- /end html constructors -->
+
+<!-- start appendices -->
+<section class="appendix">
+     <h2 id="#appendices">Appendix</h2>
+     <p>The <strong>Appendix</strong> is divided in the following sections:</p>
+     <dl>
+          <dt><a href="#document-history">Document History</a></dt>
+          <dd>This section is void when using <strong>GitHub</strong> as version control for the repositories.</dd>
+
+          <dt><a href="#more-appendices">More Appendices</a></dt>
+          <dd>In this section is possible to add further information to complement the specifications.</dd>
+
+          <dt><a href="#scr-tables">SCR Tables</a></dt>
+          <dd>This section contains the Static Conformance Requirements or SCR Tables.</dd>
+
+     </dl>
+
+     <!-- start document history -->
+     <section>
+       <h2>Document History</h2>
+       <p>This section is <strong>NOT</strong> needed when using <strong>GitHub</strong>. The reason for that is that <strong>GitHub</strong>
+          is a version control system. The document history is available in <strong>GitHub</strong>.
+     </section>
+     <!-- /end document history -->
+
+     <!-- start appendices -->
+     <section>
+       <h2>More Appendices</h2>
+       <p> </p>
+
+       <p>Following is a link to an example of how the <strong>Appendix</strong> section is displayed:</p>
+
+           <!-- start web-content for appendix -->
+           <aside class="web-content">
+             <p>Please refer to the <a href="#appendices">Appendix</a> section of this document to see an example.</p>
+           </aside>
+           <!-- /end web-content appendix -->
+
+       <p>The code for a similar example is:</p>
+
+           <!-- start code-content for appendix -->
+           <aside class="code-content">
+ &lt;!-- start appendix -->
+
+ &lt;section class="appendix">
+     &lt;h2>Appendix&lt;/h2>
+     &lt;p>Here goes the content of the section.&lt;/p>
+ &lt;/section>
+
+ &lt;!-- /end appendix -->
+           </aside>
+           <!-- end web-content for appendix -->
+
+       <!-- start guidelines for appendix -->
+       <p>The guidelines for using <strong>appendix</strong> are:</p>
+
+           <ul>
+               <li><p>In OMA Documents <code>&lt;section class="appendix"&gt;</code> is allocated <strong>only once</strong> in the document.</p></li>
+               <li><p>Once the first appendix section is defined, it is not necessary to define another section as <code>class="appendix"</code>.</p></li>
+               <li><p>All the sections following a section defined as: <code>&lt;section class="appendix"&gt;</code> will be, automatically, considered as <strong>appendices</strong>.</p></li>
+           </ul>
+       <!-- /end guidelines for appendix -->
+     </section>
+     <!-- /end appendices -->
+
+    <!-- start scr tables -->
+    <section>
+      <h2>SCR Tables</h2>
+      <p> </p>
+
+      <!-- start guidelines for xxx -->
+      <p>OMA has constructed an <strong>SCR Editor Tool</strong> to assist Editors with the creation of the <strong>SCR Tables</strong>.</p>
+      <p>The <strong>SCR Editor Tool</strong> is integrated in the <strong>ReSpec</strong> tool.
+      <p>The following list indicates how to work with this editor:</p>
+          <ul>
+              <li><p>Click in <strong>ReSpec</strong> button (top-right-hand corner in the <strong>ReSpec</strong> document).</p></li>
+              <li><p>Scroll down to select <strong>Export SCR Data</strong>.</p></li>
+              <li><p>The browser will open a new window, the <strong>SCR Editor Tool</strong>.</p></li>
+              <li><p>PENDING</p></li>
+          </ul>
+      <!-- /end guidelines for xxx -->
+    </section>
+    <!-- /end scr tables -->
+
+    <!-- start references -->
+    <section>
+          <h2>Normative and Informative References</h2>
+          <p>This section contains the list of normative and informative documents referred in the document:
+          <ul>
+            <li><p>These two sections are automatically constructed by <strong>ReSpec</strong>.</p></li>
+            <li><p>If one of the documents inserted as a normative or informative reference is not listed in any of the Reference Databases, then <strong>ReSpec</strong> will display some errors:</p></li>
+            <li><p>To see errors related to references, please refer to:</p></li>
+                <ul>
+                    <li>The <strong>ReSpec</strong> symbol in the top right hand corner of the browser window, and/or</li>
+                    <li>The <strong>Reference</strong> section.</li>
+                </ul>
+            <li><p>To see an example please refer to <strong>Reference</strong> section of this document.</p></li>
+          </ul>
+    </section>
+    <!-- / end references -->
+
+</section>
+<!-- /end appendices -->
+
+</body>
+</html>

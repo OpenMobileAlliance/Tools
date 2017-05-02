@@ -21,7 +21,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
   */
   /*global hb*/
 
-  // Module oma/headers
+  // Module oma/oma-headers
   // Generate the headers material based on the provided configuration.
   // CONFIGURATION
   //  - specStatus: the short code for the specification's maturity level or type (required)
@@ -122,7 +122,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
   //  -->
   var cgbgHeadersTmpl = _templates2.default["cgbg-headers.html"];
   var cgbgSotdTmpl = _templates2.default["cgbg-sotd.html"];
-  var headersTmpl = _templates2.default["headers.html"];
+  var headersTmpl = _templates2.default["oma-headers.html"];
   var sotdTmpl = _templates2.default["sotd.html"];
 
   _handlebars2.default.registerHelper("showPeople", function (name, items) {
@@ -546,4 +546,4 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
     cb();
   }
 });
-//# sourceMappingURL=headers.js.map
+//# sourceMappingURL=oma-headers.js.map
