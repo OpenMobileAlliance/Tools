@@ -5,13 +5,13 @@ define(["exports"], function (exports) {
     value: true
   });
   exports.run = run;
-  // Module w3c/l10n
+  // Module oma/oma-l10n
   // Looks at the lang attribute on the root element and uses it to manage the config.l10n object so
   // that other parts of the system can localise their text
 
   var l10n = exports.l10n = {
     en: {
-      this_version: "This version:",
+      this_version: "This file:",
       latest_published_version: "Latest published version:",
       latest_editors_draft: "Latest editor's draft:",
       editor: "Editor:",
@@ -19,6 +19,7 @@ define(["exports"], function (exports) {
       author: "Author:",
       authors: "Authors:",
       abstract: "Abstract",
+      legal: "Legal",
       sotd: "Status of This Document",
       toc: "Table of Contents",
       note: "Note",
@@ -47,6 +48,7 @@ define(["exports"], function (exports) {
       author: "저자:",
       authors: "저자:",
       abstract: "요약",
+      legal: "Legal",
       sotd: "현재 문서의 상태",
       toc: "Table of Contents",
       note: "Note",
@@ -75,6 +77,7 @@ define(["exports"], function (exports) {
       author: "Author:",
       authors: "Authors:",
       abstract: "摘要",
+      legal: "Legal",
       sotd: "关于本文档",
       toc: "内容大纲",
       note: "注",
@@ -103,6 +106,7 @@ define(["exports"], function (exports) {
       author: "著者：",
       authors: "著者：",
       abstract: "要約",
+      legal: "Legal",
       sotd: "この文書の位置付け",
       toc: "目次",
       note: "注",
@@ -131,6 +135,7 @@ define(["exports"], function (exports) {
       author: "Auteur:",
       authors: "Auteurs:",
       abstract: "Samenvatting",
+      legal: "Legal",
       sotd: "Status van dit document",
       toc: "Inhoudsopgave",
       note: "Noot",
@@ -160,4 +165,4 @@ define(["exports"], function (exports) {
     cb();
   }
 });
-//# sourceMappingURL=l10n.1.js.map
+//# sourceMappingURL=oma-l10n.js.map

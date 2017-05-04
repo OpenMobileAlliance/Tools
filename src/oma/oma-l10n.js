@@ -1,10 +1,10 @@
-// Module w3c/l10n
+// Module oma/oma-l10n
 // Looks at the lang attribute on the root element and uses it to manage the config.l10n object so
 // that other parts of the system can localise their text
 
 export const l10n = {
   en: {
-    this_version: "This version:",
+    this_version: "This file:",
     latest_published_version: "Latest published version:",
     latest_editors_draft: "Latest editor's draft:",
     editor: "Editor:",

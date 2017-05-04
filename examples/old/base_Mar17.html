@@ -1,173 +1,56 @@
 <!DOCTYPE html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Draft Document Title</title>
+  <title>Document Title</title>
   <meta charset="utf-8">
-  <script src='/js/deps/require.js' data-main='/js/profile-oma-common' async class='remove'></script>
-  <script class="remove">      
-    // var respecConfig = {
-    //     shortName: "Testing_OMA_Respec",
-    //     specStatus: "DRAFT",
-    //     edDraftURI: "https://member.openmobilealliance.org/edDraftURI",
-    //     wg: "Working Group Name",
-    //     wgURI: "https://member.openmobilealliance.org/WORKING GROUP ID",
-    //     copyrightStart: 2002, // For setting a range for the copyright date (ignored if the same as publishDate)
-    //     publishDate: "2002-06-19", // Used for setting the copyright date
-    //     editors: [{
-    //       name: "Nathan Dixon",
-    //       url: "http://openmobilealliance.org/",
-    //     }],
-    //     logos: [{
-    //       src: "http://www.openmobilealliance.org/wp/Images/oma_logo.jpg",
-    //       url: "http://openmobilealliance.org",
-    //       alt: "Open Mobile Alliance"
-    //     }],
-    //     processVersion: 2005,
-    //     format: "markdown",
-    //   };
+  <script src="http://openmobilealliance.github.io/Tools/builds/respec-oma-common.js" async class="remove"></script>
+  <script class="remove">
     var respecConfig = {
-      // for editor use
-      docType: "BASE", // options are BASE, RD, AD, TS, SUP, ETS, ORG
-      subtitle: "File_Name",
-      shortName:  "shortName",
-      otherLinks: [{
-        key: "Other Link",
-        data: [{
-          value: "Link Name",
-          href: "#location"
-        }]
-      }],
-      editors: [{
-        name:       "Editor Name",
-        url:        "http://example.com/",
-        company:    "Editor Company",
-        companyURL: "http://example.org/",
-        mailto:     "editor@example.com",
-        note:       "editor note"
-      }],
-      // authors: [{
-      //   name:       "Author Name",
-      //   url:        "http://example.com/",
-      //   company:    "Author Company",
-      //   companyURL: "http://example.org/",
-      //   mailto:     "author@example.com",
-      //   note:       "author note"
-      // }],
-      interactiveLinks: [{
-          name: "Link Name",
-          description: "Link Description",
-          uri: "http://example.com/",
-        },{
-          name: "Second Link Name",
-          description: "Second Link Description",
-          uri: "http://example2.com/",
-      }],
-      // for staff only
-      specStatus: "DRAFT", // options are Draft, Candidate, Approved, Historic (W3C options: unofficial, )
-      copyrightStart: "2014",
-      publishDate: "2016-06-19",
-      logos: [{
-        src: "http://www.openmobilealliance.org/wp/Images/oma_logo.jpg",
-        url: "http://openmobilealliance.org",
-        alt: "Open Mobile Alliance"
-      }],
-      overrideCopyright: {
-        copyrightURL: "http://openmobilealliance.org/about-oma/policies-and-terms-of-use/intellectual-property-rights/",
-        copyrightOrganisationName: "Open Mobile Alliance Ltd.",
-        copyrightOrganisationURL: "http://openmobilealliance.org"
-      },      
-      legalDisclaimer: "<p class='copyright'> \
-          Redistribution and use in source and binary forms, with or without \
-          modification, are permitted provided that the following conditions \
-          are met: \
-        <\/p> \
-        <p class='copyright'> \
-          1. Redistributions of source code must retain the above copyright \
-          notice, this list of conditions and the following disclaimer. \
-          2. Redistributions in binary form must reproduce the above copyright \
-          notice, this list of conditions and the following disclaimer in the \
-          documentation and/or other materials provided with the distribution. \
-          3. Neither the name of the copyright holder nor the names of its \
-          contributors may be used to endorse or promote products derived \
-          from this software without specific prior written permission. \
-        <\/p> \
-        <p class='copyright'> \
-          THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \
-          \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT \
-          LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS \
-          FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE \
-          COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, \
-          INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, \
-          BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; \
-          LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER \
-          CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT \
-          LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN \
-          ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE \
-          POSSIBILITY OF SUCH DAMAGE. \
-        <\/p> \
-        <p class='copyright'> \
-          The above license is used as a license under copyright only.  Please \
-          reference the OMA IPR Policy for patent licensing terms: \
-          http://www.openmobilealliance.org/ipr.html \
-        <\/p>",
-      organisationName: "Test Organisation",
-      organisationURL: "http://www.openmobilealliance.org/",
-      publishSpace: "FTP"
-    };
+        // for editor use
+            docType: "BASE", // options are BASE, RD, AD, TS, SUP, ETS, ORG
+            subtitle: "File_Name",
+            shortName:  "shortName",
+            otherLinks: [{
+              key: "Other Link",
+              data: [{
+              value: "Link Name",
+              href: "#location"
+              }]
+                }],
+            editors: [{
+            name:       "Editor Name",
+            url:        "http://example.com/",
+            company:    "Editor Company",
+            companyURL: "http://example.org/",
+            mailto:     "editor@example.com",
+            note:       "editor note"
+                }],
+    
+            authors: [{
+            name:       "Author Name",
+            url:        "http://example.com/",
+            company:    "Author Company",
+            companyURL: "http://example.org/",
+            mailto:     "author@example.com",
+            note:       "author note"
+               }],
+    
+            interactiveLinks: [{
+            name: "Link Name",
+            description: "Link Description",
+            uri: "http://example.com/",
+              },{
+            name: "Second Link Name",
+            description: "Second Link Description",
+            uri: "http://example2.com/",
+               }],
+    
+              // for staff only
+              specStatus: "DRAFT", // options are Draft, Candidate, Approved, Historic
+              publishDate: ""
+               };
   </script>
-</head>
-<body>
-  <section>
-    <h2>Referencing respecConfig attributes</h2>
-    <p>Current year: <script>document.write(new Date().getFullYear());</script></p>
-    <p>Copyright Start: <script>document.write(respecConfig.copyrightStart);</script></p>
-    <p>Publish Date: <script>document.write(respecConfig.publishDate);</script></p>
-    <p>This allows the legal disclaimer to be set as part of the respecConfig or by manually typing it up in the document as seen in the next section</p>
-  </section>
-  <section>
-    <h2>Legal Disclaimer in the markdown</h2>
-    <p class='copyright'> 
-      <a href="#" onclick="window.location.href = respecConfig.overrideCopyright.copyrightURL;return false;">Copyright</a> &copy; 
-      <script>if(respecConfig.copyrightStart) document.write(respecConfig.copyrightStart + '-');</script><script>document.write(new Date(respecConfig.publishDate).getFullYear());</script> 
-      <a href="#" onclick="window.location.href = respecConfig.overrideCopyright.copyrightOrganisationURL;return false;">
-        <script>document.write(respecConfig.overrideCopyright.copyrightOrganisationName);</script>
-      </a> All rights reserved. 
-    </p> 
-    <p class='copyright'> 
-      Redistribution and use in source and binary forms, with or without 
-      modification, are permitted provided that the following conditions 
-      are met: 
-    </p> 
-    <p class='copyright'> 
-      1. Redistributions of source code must retain the above copyright 
-      notice, this list of conditions and the following disclaimer. <br/>
-      2. Redistributions in binary form must reproduce the above copyright 
-      notice, this list of conditions and the following disclaimer in the 
-      documentation and/or other materials provided with the distribution. <br/>
-      3. Neither the name of the copyright holder nor the names of its 
-      contributors may be used to endorse or promote products derived 
-      from this software without specific prior written permission. <br/>
-    </p> 
-    <p class='copyright'> 
-      THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
-      \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
-      LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
-      FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE 
-      COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
-      INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
-      BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-      LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
-      CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
-      LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
-      ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
-      POSSIBILITY OF SUCH DAMAGE. 
-    </p> 
-    <p class='copyright'> 
-      The above license is used as a license under copyright only.  Please 
-      reference the OMA IPR Policy for patent licensing terms: 
-      http://www.openmobilealliance.org/ipr.html 
-    </p>
-  </section>
+</head><body>
   <section id="toc"></section>
   <section id="tof"></section>
   <section id="tot"></section>
