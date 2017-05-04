@@ -3,7 +3,7 @@
 */
 /*global hb*/
 
-// Module oma/headers
+// Module oma/oma-headers
 // Generate the headers material based on the provided configuration.
 // CONFIGURATION
 //  - specStatus: the short code for the specification's maturity level or type (required)
@@ -95,6 +95,7 @@
 //      - "w3c-software-doc", the W3C Software and Document License
 //            https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
 //  <!-- OMA change
+//  - organisationName: Override the W3C organisation name references to a custom organisation name
 //  - organisationURL: set the URLs to a customised URL for the organisation that the profile is being built for.
 //  - publishSpace: The folder structure under which the document is published.
 //  - legalDisclaimer: Your own legal disclaimer text as the first section of the document
@@ -116,7 +117,7 @@ import tmpls from "templates";
 
 const cgbgHeadersTmpl = tmpls["cgbg-headers.html"];
 const cgbgSotdTmpl = tmpls["cgbg-sotd.html"];
-const headersTmpl = tmpls["headers.html"];
+const headersTmpl = tmpls["oma-headers.html"];
 const sotdTmpl = tmpls["sotd.html"];
 
 hb.registerHelper("showPeople", function(name, items) {
@@ -469,6 +470,7 @@ export function run(conf, doc, cb) {
   conf.notRec = (conf.specStatus !== "REC");
   conf.isUnofficial = conf.specStatus === "unofficial";
   conf.prependW3C = !conf.isUnofficial;
+  conf.companyName = !conf.companyName ? "W3C" : conf.companyName;
   conf.isED = (conf.specStatus === "ED");
   conf.isCR = (conf.specStatus === "CR");
   conf.isPR = (conf.specStatus === "PR");

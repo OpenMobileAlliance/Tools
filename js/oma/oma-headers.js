@@ -21,7 +21,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
   */
   /*global hb*/
 
-  // Module oma/headers
+  // Module oma/oma-headers
   // Generate the headers material based on the provided configuration.
   // CONFIGURATION
   //  - specStatus: the short code for the specification's maturity level or type (required)
@@ -113,6 +113,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
   //      - "w3c-software-doc", the W3C Software and Document License
   //            https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
   //  <!-- OMA change
+  //  - organisationName: Override the W3C organisation name references to a custom organisation name
   //  - organisationURL: set the URLs to a customised URL for the organisation that the profile is being built for.
   //  - publishSpace: The folder structure under which the document is published.
   //  - legalDisclaimer: Your own legal disclaimer text as the first section of the document
@@ -122,7 +123,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
   //  -->
   var cgbgHeadersTmpl = _templates2.default["cgbg-headers.html"];
   var cgbgSotdTmpl = _templates2.default["cgbg-sotd.html"];
-  var headersTmpl = _templates2.default["headers.html"];
+  var headersTmpl = _templates2.default["oma-headers.html"];
   var sotdTmpl = _templates2.default["sotd.html"];
 
   _handlebars2.default.registerHelper("showPeople", function (name, items) {
@@ -458,6 +459,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
     conf.notRec = conf.specStatus !== "REC";
     conf.isUnofficial = conf.specStatus === "unofficial";
     conf.prependW3C = !conf.isUnofficial;
+    conf.companyName = !conf.companyName ? "W3C" : conf.companyName;
     conf.isED = conf.specStatus === "ED";
     conf.isCR = conf.specStatus === "CR";
     conf.isPR = conf.specStatus === "PR";
@@ -546,4 +548,4 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
     cb();
   }
 });
-//# sourceMappingURL=headers.js.map
+//# sourceMappingURL=oma-headers.js.map
