@@ -46,6 +46,7 @@ define([
     "core/aria",
     "core/style",
     //"w3c/style",
+    "oma/oma-basestyle",
     "oma/oma-style",
     "core/l10n",
     //"w3c/l10n",
@@ -54,6 +55,7 @@ define([
     "core/markdown",
     //"w3c/headers",
     "oma/oma-headers",
+    "oma/legal",
     "w3c/abstract",
     "w3c/conformance",
     "core/data-transform",
@@ -85,7 +87,6 @@ define([
     "ui/search-specref",
     "w3c/seo",
     "core/highlight",
-    "oma/legal",
     //"oma/test",
     /*Linter must be the last thing to run*/
     "w3c/linter"

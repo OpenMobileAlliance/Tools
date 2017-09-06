@@ -36,7 +36,7 @@
 //          - height: optional height of the logo (<img height=>)
 //          - width: optional width of the logo (<img width=>)
 //          - url: the URI to the organization represented by the logo (target of <a href=>)
-//          - id: optional id for the logo, permits custom CSS (wraps logo in <span id=>)
+//          - id: optional id for the logo, permits custom OMA-DRAFT (wraps logo in <span id=>)
 //          - each logo element must specifiy either src or alt
 //  - testSuiteURI: the URI to the test suite, if any
 //  - implementationReportURI: the URI to the implementation report, if any
@@ -95,6 +95,7 @@
 //      - "w3c-software-doc", the W3C Software and Document License
 //            https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
 //  <!-- OMA change
+//  - gaCode: Google Analytics code
 //  - organisationName: Override the W3C organisation name references to a custom organisation name
 //  - organisationURL: set the URLs to a customised URL for the organisation that the profile is being built for.
 //  - publishSpace: The folder structure under which the document is published.
@@ -216,7 +217,9 @@ hb.registerHelper("showPeople", function(name, items) {
 });
 
 hb.registerHelper("showLogos", function(items) {
+  //  <!-- OMA change
   // var ret = "<p>";
+  // -->
   var ret = "";
   for (var i = 0, n = items.length; i < n; i++) {
     var p = items[i];
@@ -234,7 +237,9 @@ hb.registerHelper("showLogos", function(items) {
     if (p.url) ret += "</a>";
     if (p.id) ret += "</span>";
   }
+  //  <!-- OMA change
   // ret += "</p>";
+  // -->
   return new hb.SafeString(ret);
 });
 
@@ -260,6 +265,10 @@ const status2rdf = {
   RSCND: "w3p:RSCND"
 };
 const status2text = {
+  "DRAFT":"Draft", 
+  "CANDIDATE":"Candidate", 
+  "APPROVED":"Approved", 
+  "HISTORIC":"Historic",
   NOTE: "Working Group Note",
   "WG-NOTE": "Working Group Note",
   "CG-NOTE": "Co-ordination Group Note",
@@ -294,7 +303,7 @@ const status2long = {
   "LC-NOTE": "Last Call Working Draft"
 };
 const recTrackStatus = ["FPWD", "WD", "FPLC", "LC", "CR", "PR", "PER", "REC"];
-const noTrackStatus = ["MO", "unofficial", "base", "finding", "draft-finding", "CG-DRAFT", "CG-FINAL", "BG-DRAFT", "BG-FINAL", "webspec"];
+const noTrackStatus = ["DRAFT", "CANDIDATE", "APPROVED", "HISTORIC", "MO", "unofficial", "base", "finding", "draft-finding", "CG-DRAFT", "CG-FINAL", "BG-DRAFT", "BG-FINAL", "webspec"];
 const cgbg = ["CG-DRAFT", "CG-FINAL", "BG-DRAFT", "BG-FINAL"];
 const precededByAn = ["ED", "IG-NOTE"];
 const licenses = {
@@ -409,6 +418,7 @@ export function run(conf, doc, cb) {
 //  <!-- OMA change --> 
       conf.prevVersion = conf.organisationURL + publishSpace + "/" + conf.previousPublishDate.getFullYear() + "/" + pmat + "-" +
         conf.shortName + "-" + concatDate(conf.previousPublishDate) + "/";
+// -->
     }
   } else {
     if (!/NOTE$/.test(conf.specStatus) && conf.specStatus !== "FPWD" && conf.specStatus !== "FPLC" && conf.specStatus !== "ED" && !conf.noRecTrack && !conf.isNoTrack && !conf.isSubmission)
@@ -417,7 +427,17 @@ export function run(conf, doc, cb) {
   }
 //  <!-- OMA change --> 
   if (conf.prevRecShortname && !conf.prevRecURI) conf.prevRecURI = conf.organisationURL + publishSpace + "/" + conf.prevRecShortname;
-  if (!conf.editors || conf.editors.length === 0) pub("error", "At least one editor is required");
+  if (!conf.editors || conf.editors.length === 0) {
+    conf.editors = [{
+          name:       "OMA",
+          url:        "http://openmobilealliance.com/",
+          company:    "Open Mobile Alliance",
+          companyURL: "http://openmobilealliance.org/",
+          mailto:     "helpdesk@omaorg.org",
+          note:       "Default OMA Editor"
+    }]
+  } 
+// -->
   var peopCheck = function(it) {
     if (!it.name) pub("error", "All authors and editors must have a name.");
   };

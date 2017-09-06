@@ -54,7 +54,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
   //          - height: optional height of the logo (<img height=>)
   //          - width: optional width of the logo (<img width=>)
   //          - url: the URI to the organization represented by the logo (target of <a href=>)
-  //          - id: optional id for the logo, permits custom CSS (wraps logo in <span id=>)
+  //          - id: optional id for the logo, permits custom OMA-DRAFT (wraps logo in <span id=>)
   //          - each logo element must specifiy either src or alt
   //  - testSuiteURI: the URI to the test suite, if any
   //  - implementationReportURI: the URI to the implementation report, if any
@@ -113,6 +113,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
   //      - "w3c-software-doc", the W3C Software and Document License
   //            https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
   //  <!-- OMA change
+  //  - gaCode: Google Analytics code
   //  - organisationName: Override the W3C organisation name references to a custom organisation name
   //  - organisationURL: set the URLs to a customised URL for the organisation that the profile is being built for.
   //  - publishSpace: The folder structure under which the document is published.
@@ -220,7 +221,9 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
   });
 
   _handlebars2.default.registerHelper("showLogos", function (items) {
+    //  <!-- OMA change
     // var ret = "<p>";
+    // -->
     var ret = "";
     for (var i = 0, n = items.length; i < n; i++) {
       var p = items[i];
@@ -236,7 +239,9 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
       if (p.url) ret += "</a>";
       if (p.id) ret += "</span>";
     }
+    //  <!-- OMA change
     // ret += "</p>";
+    // -->
     return new _handlebars2.default.SafeString(ret);
   });
 
@@ -262,6 +267,10 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
     RSCND: "w3p:RSCND"
   };
   var status2text = {
+    "DRAFT": "Draft",
+    "CANDIDATE": "Candidate",
+    "APPROVED": "Approved",
+    "HISTORIC": "Historic",
     NOTE: "Working Group Note",
     "WG-NOTE": "Working Group Note",
     "CG-NOTE": "Co-ordination Group Note",
@@ -296,7 +305,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
     "LC-NOTE": "Last Call Working Draft"
   };
   var recTrackStatus = ["FPWD", "WD", "FPLC", "LC", "CR", "PR", "PER", "REC"];
-  var noTrackStatus = ["MO", "unofficial", "base", "finding", "draft-finding", "CG-DRAFT", "CG-FINAL", "BG-DRAFT", "BG-FINAL", "webspec"];
+  var noTrackStatus = ["DRAFT", "CANDIDATE", "APPROVED", "HISTORIC", "MO", "unofficial", "base", "finding", "draft-finding", "CG-DRAFT", "CG-FINAL", "BG-DRAFT", "BG-FINAL", "webspec"];
   var cgbg = ["CG-DRAFT", "CG-FINAL", "BG-DRAFT", "BG-FINAL"];
   var precededByAn = ["ED", "IG-NOTE"];
   var licenses = {
@@ -402,6 +411,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
       } else {
         //  <!-- OMA change --> 
         conf.prevVersion = conf.organisationURL + publishSpace + "/" + conf.previousPublishDate.getFullYear() + "/" + pmat + "-" + conf.shortName + "-" + (0, _utils.concatDate)(conf.previousPublishDate) + "/";
+        // -->
       }
     } else {
       if (!/NOTE$/.test(conf.specStatus) && conf.specStatus !== "FPWD" && conf.specStatus !== "FPLC" && conf.specStatus !== "ED" && !conf.noRecTrack && !conf.isNoTrack && !conf.isSubmission) (0, _pubsubhub.pub)("error", "Document on track but no previous version: Add previousMaturity previousPublishDate to ReSpec's config.");
@@ -409,7 +419,17 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
     }
     //  <!-- OMA change --> 
     if (conf.prevRecShortname && !conf.prevRecURI) conf.prevRecURI = conf.organisationURL + publishSpace + "/" + conf.prevRecShortname;
-    if (!conf.editors || conf.editors.length === 0) (0, _pubsubhub.pub)("error", "At least one editor is required");
+    if (!conf.editors || conf.editors.length === 0) {
+      conf.editors = [{
+        name: "OMA",
+        url: "http://openmobilealliance.com/",
+        company: "Open Mobile Alliance",
+        companyURL: "http://openmobilealliance.org/",
+        mailto: "helpdesk@omaorg.org",
+        note: "Default OMA Editor"
+      }];
+    }
+    // -->
     var peopCheck = function peopCheck(it) {
       if (!it.name) (0, _pubsubhub.pub)("error", "All authors and editors must have a name.");
     };

@@ -1,0 +1,45 @@
+/******************************************************************************
+ *                   Style sheet for the OMA specifications                   *
+ ******************************************************************************/
+ 
+ .interactiveLinks {    
+    overflow: hidden;
+    width: 70%;
+    margin: 0 auto;
+ }
+
+ .interactiveLinks > div {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+ }
+
+ .interactiveLinks > div a {
+    font-weight: bold;
+ }
+
+ .interactiveLinks > div:nth-child(3n+1) {
+    background-color: #e8effa;
+}
+.interactiveLinks > div:nth-child(3n+2) {
+    background-color: #ffecec;
+}
+
+.interactiveLinks > div:nth-child(3n+3) {
+    background-color: #fff6ea;
+}
+ /* .interactiveLinks div:hover {
+    background-color: #ddd;
+    color: black;
+ } */
+
+ /* .interactiveLinks div.active {
+    background-color: #4CAF50;
+    color: white;
+ } */
