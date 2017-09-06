@@ -1,7 +1,7 @@
 {
   "name": "oma-respec",
-  "version": "0.0.14",
-  "license": "W3C",
+  "version": "0.0.15",
+  "license": "OMA",
   "description": "A technical specification pre-processor.",
   "engines": {
     "node": ">=5"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/w3c/respec.git"
+    "url": "git://github.com/Evadon-Dynamics/respec.git"
   },
   "author": "Robin Berjon",
   "devDependencies": {
