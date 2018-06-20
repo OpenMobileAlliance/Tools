@@ -1,7 +1,15 @@
 /******************************************************************************
  *                   Style sheet for the OMA specifications                   *
  ******************************************************************************/
- 
+ table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: solid;
+    border-width:thin;
+}
+
  .interactiveLinks {    
     overflow: hidden;
     width: 70%;

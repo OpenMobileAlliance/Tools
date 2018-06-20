@@ -334,9 +334,8 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
       name: "Open Mobile Alliance License",
       short: "OMA License",
       url: "http://openmobilealliance.org/about-oma/policies-and-terms-of-use/intellectual-property-rights/"
-    }
-    //  --> 
-  };
+      //  --> 
+    } };
 
   function run(conf, doc, cb) {
     // Default include RDFa document metadata

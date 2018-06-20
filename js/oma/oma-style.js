@@ -112,22 +112,22 @@ define(["exports", "core/utils", "core/pubsubhub"], function (exports, _utils, _
     // Figure out which style file to use.
     switch (conf.specStatus.toUpperCase()) {
       case "DRAFT":
-        styleBaseURL = "https://evadon-dynamics.github.io/respec/stylesheets/";
+        styleBaseURL = "https://openmobilealliance.github.io/respec/stylesheets/";
         styleFile = "OMA-";
         styleFile += "DRAFT.css";
         break;
       case "CANDIDATE":
-        styleBaseURL = "https://evadon-dynamics.github.io/respec/stylesheets/";
+        styleBaseURL = "https://openmobilealliance.github.io/respec/stylesheets/";
         styleFile = "OMA-";
         styleFile += "CANDIDATE.css";
         break;
       case "APPROVED":
-        styleBaseURL = "https://evadon-dynamics.github.io/respec/stylesheets/";
+        styleBaseURL = "https://openmobilealliance.github.io/respec/stylesheets/";
         styleFile = "OMA-";
         styleFile += "APPROVED.css";
         break;
       case "HISTORIC":
-        styleBaseURL = "https://evadon-dynamics.github.io/respec/stylesheets/";
+        styleBaseURL = "https://openmobilealliance.github.io/respec/stylesheets/";
         styleFile = "OMA-";
         styleFile += "HISTORIC.css";
         break;
