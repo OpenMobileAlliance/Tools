@@ -5,6 +5,10 @@
     border-collapse: collapse;
 }
 
+th {
+    font-weight: bold;
+}
+
 th, td {
     border: solid;
     border-width:thin;
