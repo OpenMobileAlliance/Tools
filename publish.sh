@@ -7,7 +7,7 @@ do
                     COMMITMSG=${OPTARG}
                     npm run build
                     git add -A
-                    git commit -m COMMITMSG
+                    git commit -m "$COMMITMSG"
                     git push
                     node tools/oma-release
                     exit 1
