@@ -46,6 +46,13 @@ th, td {
 .interactiveLinks > div:nth-child(3n+3) {
     background-color: #fff6ea;
 }
+
+em.rfc2119 {
+    text-transform: uppercase;
+    font-style: normal;
+    color: #900;
+}
+
  /* .interactiveLinks div:hover {
     background-color: #ddd;
     color: black;
