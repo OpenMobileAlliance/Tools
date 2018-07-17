@@ -1,6 +1,6 @@
 {
   "name": "oma-respec",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "license": "OMA",
   "description": "A technical specification pre-processor.",
   "engines": {
