@@ -113,6 +113,7 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
   //      - "w3c-software-doc", the W3C Software and Document License
   //            https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
   //  <!-- OMA change
+  //  - version: The version of the specification. In the format x.x.x. File name will convert "." to "_".
   //  - gaCode: Google Analytics code
   //  - organisationName: Override the W3C organisation name references to a custom organisation name
   //  - organisationURL: set the URLs to a customised URL for the organisation that the profile is being built for.
@@ -300,6 +301,14 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
     "BG-DRAFT": "Draft Business Group Report",
     "BG-FINAL": "Final Business Group Report"
   };
+  // <!-- OMA change --> 
+  var status2code = {
+    "DRAFT": "D",
+    "CANDIDATE": "C",
+    "APPROVED": "A",
+    "HISTORIC": "H"
+  };
+  // End OMA change -->
   var status2long = {
     "FPWD-NOTE": "First Public Working Group Note",
     "LC-NOTE": "Last Call Working Draft"
@@ -384,12 +393,15 @@ define(["exports", "core/utils", "handlebars.runtime", "core/pubsubhub", "templa
     //  --> 
     if (conf.specStatus === "Member-SUBM") publishSpace = "Submission";else if (conf.specStatus === "Team-SUBM") publishSpace = "TeamSubmission";
     //  <!-- OMA change
-    if (conf.isRegular) conf.thisVersion = conf.organisationURL + publishSpace + "/" +
+    if (conf.isRegular) conf.thisVersion = conf.organisationURL + "/release/" + conf.shortName + "/" + "V" + conf.version.replace(/\./g, "_") + "-" + (0, _utils.concatDate)(conf.publishDate) + "-" + status2code[conf.specStatus] + "/" + "OMA-TS-" + conf.shortName + "-" + "V" + conf.version.replace(/\./g, "_") + "-" + (0, _utils.concatDate)(conf.publishDate) + "-" + status2code[conf.specStatus] + ".pdf";
+    //conf.publishDate.getFullYear() + "/" +
+    //conf.maturity + "-" + conf.shortName + "-" +
+    //concatDate(conf.publishDate) + "/";
     //  --> 
-    conf.publishDate.getFullYear() + "/" + conf.maturity + "-" + conf.shortName + "-" + (0, _utils.concatDate)(conf.publishDate) + "/";
     if (conf.specStatus === "ED") conf.thisVersion = conf.edDraftURI;
     //  <!-- OMA change
-    if (conf.isRegular) conf.latestVersion = conf.organisationURL + publishSpace + "/" + conf.shortName + "/";
+    if (conf.isRegular) conf.latestVersion = conf.organisationURL + "/release/" + conf.shortName + "/" + "V" + conf.version.replace(/\./g, "_") + "-" + (0, _utils.concatDate)(conf.publishDate) + "-" + status2code[conf.specStatus] + "/";
+    //if (conf.isRegular) conf.latestVersion = conf.organisationURL + publishSpace + "/" + conf.shortName + "/";
     //  --> 
     if (conf.isTagFinding) {
       //  <!-- OMA change
